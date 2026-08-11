@@ -15,7 +15,7 @@ const showcases = [
     width: 684,
     height: 681,
     imageAlt: "Pocket Tool quote creator inside Discord",
-    details: ["Message command", "Custom type", "Visual effects"],
+    details: ["Message Context Command", "Custom type", "Visual effects"],
   },
   {
     id: "timestamp",
@@ -48,7 +48,7 @@ const showcases = [
     label: "Tweet",
     command: "/tweet",
     eyebrow: "Links that read well",
-    title: "Bring a post into the conversation—cleanly.",
+    title: "Bring a post into the conversation - cleanly.",
     description: "Preview X posts with media, engagement details and an optional translation into your chosen language.",
     image: "/assets/tweet/ptbr.png",
     width: 518,
@@ -90,7 +90,7 @@ export function CommandShowcase() {
           <ul className="detail-list" aria-label="Highlights">
             {item.details.map((detail) => <li key={detail}>{detail}</li>)}
           </ul>
-          <a className="text-link" href={`/docs#${item.id}`}>Read command details <span aria-hidden="true">→</span></a>
+          <a className="text-link" href={`/docs#${item.id}`}>Read command details <span aria-hidden="true">-></span></a>
         </div>
         <div className="showcase-media">
           <div className="showcase-media__bar">

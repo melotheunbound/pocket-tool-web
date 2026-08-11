@@ -24,8 +24,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(origin),
     title: {
-      default: "Pocket Tool — Small utilities for Discord",
-      template: "%s — Pocket Tool",
+      default: "Pocket Tool  -  Small utilities for Discord",
+      template: "%s  -  Pocket Tool",
     },
     description: "A lightweight, open-source Discord app for quotes, timestamps, translation, TTS, profiles and the little tasks that interrupt a conversation.",
     applicationName: "Pocket Tool",
@@ -38,13 +38,13 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       url: origin,
       siteName: "Pocket Tool",
-      title: "Pocket Tool — Small utilities for Discord",
-      description: "Quotes, timestamps, translation, TTS and more—right inside Discord.",
+      title: "Pocket Tool  -  Small utilities for Discord",
+      description: "Quotes, timestamps, translation, TTS and more - right inside Discord.",
     },
     twitter: {
       card: "summary",
-      title: "Pocket Tool — Small utilities for Discord",
-      description: "Quotes, timestamps, translation, TTS and more—right inside Discord.",
+      title: "Pocket Tool  -  Small utilities for Discord",
+      description: "Quotes, timestamps, translation, TTS and more - right inside Discord.",
     },
   };
 }
