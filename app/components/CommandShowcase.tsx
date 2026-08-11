@@ -45,7 +45,7 @@ const showcases = [
   },
   {
     id: "tweet",
-    label: "Tweet8",
+    label: "Tweet",
     command: "/tweet",
     eyebrow: "Links that read well",
     title: "Bring a post into the conversation—cleanly.",

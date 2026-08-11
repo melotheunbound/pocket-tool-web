@@ -29,7 +29,7 @@ export default function Home() {
               <p className="hero-headline">The small Discord tools you keep reaching for.</p>
               <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs—handled without pulling you out of the conversation.</p>
               <div className="hero__actions">
-                <a className="button button--primary" href={inviteUrl} target="_blank" rel="noreferrer">Add to Discord <span aria-hidden="true">↗</span></a>
+                <a className="button button--primary" href={inviteUrl} target="_blank" rel="noreferrer">Add to Discord</a>
                 <a className="button button--secondary" href="/docs">Browse the docs <span aria-hidden="true">→</span></a>
               </div>
               <div className="hero__meta" aria-label="Pocket Tool highlights">
@@ -93,7 +93,7 @@ export default function Home() {
                   <div><span>{card.label}</span><i>{String(index + 1).padStart(2, "0")}</i></div>
                   <code>{card.command}</code>
                   <p>{card.copy}</p>
-                  <a href={`/docs#commands`} aria-label={`Read about ${card.command}`}>Explore <span aria-hidden="true">↗</span></a>
+                  <a href={`/docs#commands`} aria-label={`Read about ${card.command}`}>Explore</a>
                 </article>
               ))}
             </div>
@@ -107,7 +107,7 @@ export default function Home() {
               <h2 className="section-title">Open source, end to end</h2>
               <p>Pocket Tool is built in TypeScript on Bun. Inspect every command, suggest an improvement, or run your own instance with the services you choose.</p>
               <div className="open-source-links">
-                <a className="button button--primary" href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">View the repository <span aria-hidden="true">↗</span></a>
+                <a className="button button--primary" href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">View the repository</a>
                 <a className="text-link" href="/docs#self-host">Self-hosting guide <span aria-hidden="true">→</span></a>
               </div>
             </div>
@@ -126,8 +126,8 @@ export default function Home() {
               <p>Add Pocket Tool to Discord now, or try Canary to see what is coming next.</p>
             </div>
             <div className="canary-band__actions">
-              <a className="button button--on-dark" href={inviteUrl} target="_blank" rel="noreferrer">Add Pocket Tool <span aria-hidden="true">↗</span></a>
-              <a className="button button--pink" href={canaryUrl} target="_blank" rel="noreferrer"><span className="canary-mark brand-icon brand-icon--canary" aria-hidden="true"></span>Try Canary <span aria-hidden="true">↗</span></a>
+              <a className="button button--on-dark" href={inviteUrl} target="_blank" rel="noreferrer">Add Pocket Tool</a>
+              <a className="button button--pink" href={canaryUrl} target="_blank" rel="noreferrer"><span className="canary-mark brand-icon brand-icon--canary" aria-hidden="true"></span>Try Canary</a>
             </div>
           </div>
         </section>

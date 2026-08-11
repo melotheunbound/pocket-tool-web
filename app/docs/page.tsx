@@ -55,7 +55,7 @@ export default function DocsPage() {
                 <article><span>2</span><div><h3>Type a command</h3><p>Start with <code>/help</code>, or jump straight to something useful like <code>/timestamp</code>.</p></div></article>
                 <article><span>3</span><div><h3>Try message tools</h3><p>Open a message's Apps menu to quote, translate, transcribe or turn content into a GIF.</p></div></article>
               </div>
-              <a className="button button--primary" href={inviteUrl} target="_blank" rel="noreferrer">Add Pocket Tool <span aria-hidden="true">↗</span></a>
+              <a className="button button--primary" href={inviteUrl} target="_blank" rel="noreferrer">Add Pocket Tool</a>
             </section>
 
             <section id="install-anywhere" className="docs-section">
