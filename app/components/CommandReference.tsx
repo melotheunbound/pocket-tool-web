@@ -79,7 +79,7 @@ export function CommandReference() {
         </section>
       )) : (
         <div className="empty-state">
-          <p>No commands match “{query}”.</p>
+          <p>No commands match "{query}".</p>
           <button type="button" onClick={() => setQuery("")}>Clear search</button>
         </div>
       )}

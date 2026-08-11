@@ -80,7 +80,7 @@ export default function DocsPage() {
                 </article>
                 <article id="time">
                   <div className="workflow-docs__index">B</div>
-                  <div><p className="eyebrow">Slash Command</p><h3>/timestamp</h3><p>Give Pocket Tool a natural phrase such as “tomorrow at 2pm”. Add an IANA timezone when the date is not UTC, choose one of Discord's timestamp styles and optionally make the response ephemeral.</p><code>/timestamp time: tomorrow at 2pm timezone: Europe/London style: Relative Time</code></div>
+                  <div><p className="eyebrow">Slash Command</p><h3>/timestamp</h3><p>Give Pocket Tool a natural phrase such as "tomorrow at 2pm". Add an IANA timezone when the date is not UTC, choose one of Discord's timestamp styles and optionally make the response ephemeral.</p><code>/timestamp time: tomorrow at 2pm timezone: Europe/London style: Relative Time</code></div>
                 </article>
                 <article id="tts">
                   <div className="workflow-docs__index">C</div>
