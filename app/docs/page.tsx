@@ -76,7 +76,7 @@ export default function DocsPage() {
               <div className="workflow-docs">
                 <article id="quote">
                   <div className="workflow-docs__index">A</div>
-                  <div><p className="eyebrow">Message Context Command</p><h3>Quote This Message</h3><p>Open the target message's menu, choose <strong>Apps</strong>, then <strong>Quote This Message</strong>. Pocket Tool builds a quote card and lets you refine its font, fit, colour and effects before posting.</p><code>Message -> Apps -> Quote This Message</code></div>
+                  <div><p className="eyebrow">Message Context Command</p><h3>Quote This Message</h3><p>Open the target message's menu, choose <strong>Apps</strong>, then <strong>Quote This Message</strong>. Pocket Tool builds a quote card and lets you refine its font, fit, colour and effects before posting.</p><code>Message -&gt; Apps -&gt; Quote This Message</code></div>
                 </article>
                 <article id="time">
                   <div className="workflow-docs__index">B</div>
@@ -139,8 +139,8 @@ export default function DocsPage() {
               <h2>Only what keeps the app working.</h2>
               <p>The project privacy policy states that Pocket Tool may store interaction trigger logs and command usage analytics. It does not sell, rent or trade user data. Third-party providers can process limited data when a command needs them.</p>
               <div className="policy-links">
-                <a href="/privacy"><span>Privacy policy</span><b>Read policy -></b></a>
-                <a href="/terms"><span>Terms of service</span><b>Read terms -></b></a>
+                <a href="/privacy"><span>Privacy policy</span><b>Read policy -&gt;</b></a>
+                <a href="/terms"><span>Terms of service</span><b>Read terms -&gt;</b></a>
               </div>
               <div className="source-note">Documentation reflects the public repository as of August 2026. The source code remains the authority for implementation details.</div>
             </section>

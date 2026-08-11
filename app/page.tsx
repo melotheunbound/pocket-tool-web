@@ -30,7 +30,7 @@ export default function Home() {
               <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs - handled without pulling you out of the conversation.</p>
               <div className="hero__actions">
                 <a className="button button--primary" href={inviteUrl} target="_blank" rel="noreferrer">Add to Discord</a>
-                <a className="button button--secondary" href="/docs">Browse the docs <span aria-hidden="true">-></span></a>
+                <a className="button button--secondary" href="/docs">Browse the docs <span aria-hidden="true">-&gt;</span></a>
               </div>
               <div className="hero__meta" aria-label="Pocket Tool highlights">
                 <span><i aria-hidden="true">✓</i> User-install ready</span>
@@ -85,7 +85,7 @@ export default function Home() {
                 <p className="eyebrow">And plenty more</p>
                 <h2 className="section-title">More utility, no extra workspace</h2>
               </div>
-              <a className="button button--secondary" href="/docs#commands">View every command <span aria-hidden="true">-></span></a>
+              <a className="button button--secondary" href="/docs#commands">View every command <span aria-hidden="true">-&gt;</span></a>
             </div>
             <div className="command-card-grid">
               {commandCards.map((card, index) => (
@@ -108,7 +108,7 @@ export default function Home() {
               <p>Pocket Tool is built in TypeScript on Bun. Inspect every command, suggest an improvement, or run your own instance with the services you choose.</p>
               <div className="open-source-links">
                 <a className="button button--primary" href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">View the repository</a>
-                <a className="text-link" href="/docs#self-host">Self-hosting guide <span aria-hidden="true">-></span></a>
+                <a className="text-link" href="/docs#self-host">Self-hosting guide <span aria-hidden="true">-&gt;</span></a>
               </div>
             </div>
             <div className="terminal" data-reveal>
