@@ -28,8 +28,8 @@ const commands: Command[] = [
   { name: "/role", description: "Inspect a role's age, position, colours and key permissions.", syntax: "/role role: @role", category: "Lookups", context: "Chat Input Command" },
   { name: "/invite", description: "View information about a Discord invite link.", syntax: "/invite link: discord.gg/…", category: "Lookups", context: "Chat Input Command" },
   { name: "/help", description: "Browse the commands currently available to you.", syntax: "/help", category: "Essentials", context: "Chat Input Command" },
-  { name: "/ping", description: "Check that Pocket Tool is online and responding.", syntax: "/ping", category: "Essentials" },
-  { name: "/debug", description: "View some information about Pocket Tool.", syntax: "/debug", category: "Essentials" },
+  { name: "/ping", description: "Check that Pocket Tool is online and responding.", syntax: "/ping", category: "Essentials", context: "Chat Input Command" },
+  { name: "/debug", description: "View some information about Pocket Tool.", syntax: "/debug", category: "Essentials", context: "Chat Input Command" },
 ] as const;
 
 export function CommandReference() {
