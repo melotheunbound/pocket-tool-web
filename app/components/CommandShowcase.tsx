@@ -90,7 +90,7 @@ export function CommandShowcase() {
           <ul className="detail-list" aria-label="Highlights">
             {item.details.map((detail) => <li key={detail}>{detail}</li>)}
           </ul>
-          <a className="text-link" href={`/docs#${item.id}`}>Read command details <span aria-hidden="true">-&gt;</span></a>
+          <a className="text-link" href={`/docs#${item.id}`}>Read command details</a>
         </div>
         <div className="showcase-media">
           <div className="showcase-media__bar">

@@ -139,8 +139,8 @@ export default function DocsPage() {
               <h2>Only what keeps the app working.</h2>
               <p>The project privacy policy states that Pocket Tool may store interaction trigger logs and command usage analytics. It does not sell, rent or trade user data. Third-party providers can process limited data when a command needs them.</p>
               <div className="policy-links">
-                <a href="/privacy"><span>Privacy policy</span><b>Read policy -&gt;</b></a>
-                <a href="/terms"><span>Terms of service</span><b>Read terms -&gt;</b></a>
+                <a href="/privacy"><span>Privacy policy</span><b>Read policy</b></a>
+                <a href="/terms"><span>Terms of service</span><b>Read terms</b></a>
               </div>
               <div className="source-note">Documentation reflects the public repository as of August 2026. The source code remains the authority for implementation details.</div>
             </section>
