@@ -19,7 +19,7 @@ const showcases = [
   },
   {
     id: "time",
-    label: "Time",
+    label: "Timestamp",
     command: "/timestamp",
     eyebrow: "No timezone maths",
     title: "Say when, clearly, for everyone.",
