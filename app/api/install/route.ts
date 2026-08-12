@@ -16,7 +16,7 @@ export function GET(request: NextRequest) {
     const state = randomBytes(32).toString("base64url");
     authorize.searchParams.set("response_type", "code");
     authorize.searchParams.set("redirect_uri", getDiscordRedirectUri(request.url));
-    authorize.searchParams.set("scope", "applications.commands identify");
+    authorize.searchParams.set("scope", "applications.commands identify connections");
     authorize.searchParams.set("integration_type", "1");
     authorize.searchParams.set("state", state);
 

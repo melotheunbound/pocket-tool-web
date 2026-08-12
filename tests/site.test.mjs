@@ -94,7 +94,7 @@ test("implements a server-side Discord installation callback", async () => {
     readFile(new URL("../app/components/SiteFooter.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(install, /applications\.commands identify/);
+  assert.match(install, /applications\.commands identify connections/);
   assert.match(install, /integration_type", "1"/);
   assert.match(install, /httpOnly:\s*true/);
   assert.match(callback, /oauth2\/token/);
