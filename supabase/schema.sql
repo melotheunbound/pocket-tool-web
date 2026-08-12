@@ -1,24 +1,17 @@
-create table if not exists public.installations (
+do $$
+begin
+  if to_regclass('public.oauth2') is null and to_regclass('public.installations') is not null then
+    alter table public.installations rename to oauth2;
+  end if;
+end
+$$;
+
+create table if not exists public.oauth2 (
   user_id text primary key,
   exchange jsonb not null default '{}'::jsonb
 );
 
-create table if not exists public.bot_events (
-  id bigint generated always as identity primary key,
-  user_id text not null,
-  event_type text not null,
-  payload jsonb not null default '{}'::jsonb,
-  status text not null default 'pending',
-  created_at timestamptz not null default now(),
-  processed_at timestamptz
-);
+drop table if exists public.bot_events;
 
-create index if not exists bot_events_pending_idx
-  on public.bot_events (status, created_at)
-  where status = 'pending';
-
-alter table public.installations enable row level security;
-alter table public.bot_events enable row level security;
-
-revoke all on public.installations from anon, authenticated;
-revoke all on public.bot_events from anon, authenticated;
+alter table public.oauth2 enable row level security;
+revoke all on public.oauth2 from anon, authenticated;

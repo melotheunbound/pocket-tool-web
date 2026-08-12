@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDiscordClientId, getDiscordRedirectUri, getSiteUrl, requireServerEnvironment } from "../lib/server-config";
-import { recordDiscordInstallation } from "../lib/supabase-server";
+import { recordDiscordOAuth2 } from "../lib/supabase-server";
 import { encryptToken } from "../lib/token-crypto";
 
 const stateCookie = "pocket-tool-oauth-state";
@@ -73,7 +73,7 @@ export async function GET(request: NextRequest) {
     if (!user.id) throw new Error("Discord returned an invalid user response");
 
     const authorizedAt = new Date();
-    await recordDiscordInstallation(user, {
+    await recordDiscordOAuth2(user, {
       access_token: encryptToken(token.access_token),
       authorized_at: authorizedAt.toISOString(),
       expires_at: new Date(authorizedAt.getTime() + token.expires_in * 1000).toISOString(),

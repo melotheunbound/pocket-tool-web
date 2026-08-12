@@ -104,7 +104,8 @@ test("implements a server-side Discord installation callback", async () => {
   assert.match(database, /refresh_token/);
   assert.match(callback, /encryptToken\(token\.access_token\)/);
   assert.match(callback, /encryptToken\(token\.refresh_token\)/);
-  assert.match(database, /user_installed/);
+  assert.match(database, /SUPABASE_OAUTH2_TABLE/);
+  assert.doesNotMatch(database, /bot_events|user_installed/);
   assert.match(`${home}\n${header}\n${footer}`, /\/api\/install/);
 });
 

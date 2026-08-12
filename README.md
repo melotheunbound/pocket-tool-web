@@ -23,7 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) in a browser.
 3. Register the exact `DISCORD_REDIRECT_URI` in the Discord Developer Portal.
 4. Add the same environment values to the Vercel project before deploying.
 
-The callback stores the complete OAuth token response against the Discord `user_id`, which is the table's primary key. Access and refresh tokens are encrypted with AES-256-GCM before they reach Supabase. It also writes a `user_installed` row to `bot_events`. Pocket Tool can consume pending rows with its own server-side Supabase secret and mark each row as processed.
+The callback stores the complete OAuth token response in `oauth2` against the Discord `user_id`, which is the table's primary key. Access and refresh tokens are encrypted with AES-256-GCM before they reach Supabase.
 
 Generate `OAUTH_TOKEN_ENCRYPTION_KEY` as 32 random bytes encoded with base64. The website and bot must receive the same key through their server environments. When `expires_at` has passed, the bot decrypts `refresh_token`, exchanges it with Discord using `grant_type=refresh_token`, encrypts the returned access and refresh tokens, and replaces the `exchange` value for the same `user_id`.
 
