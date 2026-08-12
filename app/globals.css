@@ -1318,36 +1318,6 @@ kbd {
   font-size: 1.05rem;
 }
 
-.docs-hero__badge {
-  display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
-  min-width: 160px;
-  padding: 1rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 10px;
-  transform: rotate(2deg);
-}
-
-.docs-hero__badge span {
-  color: var(--blue);
-  font-family: var(--font-mono), monospace;
-  font-size: 0.62rem;
-  font-weight: 800;
-}
-
-.docs-hero__badge strong {
-  margin-left: auto;
-  font-size: 1.7rem;
-  line-height: 1;
-}
-
-.docs-hero__badge small {
-  color: var(--quiet);
-  font-size: 0.58rem;
-  white-space: nowrap;
-}
-
 .docs-layout {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
@@ -3041,7 +3011,6 @@ body {
   letter-spacing: -0.045em;
 }
 
-.docs-hero__badge,
 .sidebar-help,
 .command-search,
 .code-block {

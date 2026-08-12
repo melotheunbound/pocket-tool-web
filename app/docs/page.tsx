@@ -22,11 +22,6 @@ export default function DocsPage() {
               <h1>Use Pocket Tool <span>without the guesswork.</span></h1>
               <p>Commands, practical examples and everything you need to run the open-source app yourself.</p>
             </div>
-            <div className="docs-hero__badge">
-              <span>DOCS</span>
-              <small>Updated from source</small>
-              <strong>v1</strong>
-            </div>
           </div>
         </section>
 
@@ -46,7 +41,7 @@ export default function DocsPage() {
             <div className="sidebar-help">
               <span aria-hidden="true">?</span>
               <p><strong>Need a hand?</strong>Ask in the support server.</p>
-              <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">Open Discord ↗</a>
+              <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">Open Discord</a>
             </div>
           </aside>
 
