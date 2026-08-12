@@ -7,7 +7,7 @@ const inviteUrl = "/api/install";
 const canaryUrl = "https://discord.com/oauth2/authorize?client_id=1489363092071518324";
 
 const commandCards = [
-  { command: "/translate", label: "Language", copy: "Translate text—or an existing message—without leaving Discord." },
+  { command: "/translate", label: "Language", copy: "Translate text - or an existing message - without leaving Discord." },
   { command: "/avatar", label: "Profiles", copy: "Open global and server avatars in the format you need." },
   { command: "/gif", label: "Media", copy: "Turn an uploaded image into a shareable GIF in a few seconds." },
   { command: "/role", label: "Lookups", copy: "Inspect role age, colours, position and permissions at a glance." },
@@ -27,10 +27,10 @@ export default function Home() {
               <p className="open-source-pill">Open-source Discord utility app</p>
               <h1>Pocket Tool</h1>
               <p className="hero-headline">The small Discord tools you keep reaching for.</p>
-              <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs—handled without pulling you out of the conversation.</p>
+              <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs - handled without pulling you out of the conversation.</p>
               <div className="hero__actions">
-                <a className="button button--primary" href={inviteUrl}>Add to Discord <span aria-hidden="true">↗</span></a>
-                <a className="button button--secondary" href="/docs">Browse the docs <span aria-hidden="true">→</span></a>
+                <a className="button button--primary" href={inviteUrl}>Add to Discord</a>
+                <a className="button button--secondary" href="/docs">Browse the docs</a>
               </div>
               <div className="hero__meta" aria-label="Pocket Tool highlights">
                 <span><i aria-hidden="true">✓</i> User-install ready</span>
@@ -57,7 +57,7 @@ export default function Home() {
         <section className="section essentials-section" aria-label="Why Pocket Tool">
           <div className="shell">
             <h2 className="section-title">Everything lives in the conversation</h2>
-            <p className="section-lead">Install Pocket Tool once, then reach for it wherever Discord lets you work—without a dashboard, setup maze or second tab.</p>
+            <p className="section-lead">Install Pocket Tool once, then reach for it wherever Discord lets you work - without a dashboard, setup maze or second tab.</p>
             <div className="utility-grid">
               <article><span>/timestamp</span><h3>Time without the maths</h3><p>Natural-language timestamps and timezone lookups that display correctly for everyone.</p></article>
               <article><span>/tts</span><h3>Text to speech</h3><p>Speak your mind twin</p></article>
@@ -85,7 +85,7 @@ export default function Home() {
                 <p className="eyebrow">And plenty more</p>
                 <h2 className="section-title">More utility, no extra workspace</h2>
               </div>
-              <a className="button button--secondary" href="/docs#commands">View every command <span aria-hidden="true">→</span></a>
+              <a className="button button--secondary" href="/docs#commands">View every command</a>
             </div>
             <div className="command-card-grid">
               {commandCards.map((card, index) => (
@@ -93,7 +93,7 @@ export default function Home() {
                   <div><span>{card.label}</span><i>{String(index + 1).padStart(2, "0")}</i></div>
                   <code>{card.command}</code>
                   <p>{card.copy}</p>
-                  <a href={`/docs#commands`} aria-label={`Read about ${card.command}`}>Explore <span aria-hidden="true">↗</span></a>
+                  <a href={`/docs#commands`} aria-label={`Read about ${card.command}`}>Explore</a>
                 </article>
               ))}
             </div>
@@ -107,8 +107,8 @@ export default function Home() {
               <h2 className="section-title">Open source, end to end</h2>
               <p>Pocket Tool is built in TypeScript on Bun. Inspect every command, suggest an improvement, or run your own instance with the services you choose.</p>
               <div className="open-source-links">
-                <a className="button button--primary" href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">View the repository <span aria-hidden="true">↗</span></a>
-                <a className="text-link" href="/docs#self-host">Self-hosting guide <span aria-hidden="true">→</span></a>
+                <a className="button button--primary" href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">View the repository</a>
+                <a className="text-link" href="/docs#self-host">Self-hosting guide</a>
               </div>
             </div>
             <div className="terminal" data-reveal>
@@ -126,8 +126,8 @@ export default function Home() {
               <p>Add Pocket Tool to Discord now, or try Canary to see what is coming next.</p>
             </div>
             <div className="canary-band__actions">
-              <a className="button button--on-dark" href={inviteUrl}>Add Pocket Tool <span aria-hidden="true">↗</span></a>
-              <a className="button button--pink" href={canaryUrl} target="_blank" rel="noreferrer"><span className="canary-mark brand-icon brand-icon--canary" aria-hidden="true"></span>Try Canary <span aria-hidden="true">↗</span></a>
+              <a className="button button--on-dark" href={inviteUrl}>Add Pocket Tool</a>
+              <a className="button button--pink" href={canaryUrl} target="_blank" rel="noreferrer"><span className="canary-mark brand-icon brand-icon--canary" aria-hidden="true"></span>Try Canary</a>
             </div>
           </div>
         </section>

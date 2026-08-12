@@ -22,7 +22,7 @@ export function SiteHeader({ active }: { active?: "home" | "docs" }) {
         <div className="site-header__actions">
           <ThemeToggle />
           <a className="button button--small button--primary header-invite" href={inviteUrl}>
-            Add to Discord <span aria-hidden="true">↗</span>
+            Add to Discord
           </a>
         </div>
       </div>
