@@ -15,7 +15,7 @@ const showcases = [
     width: 684,
     height: 681,
     imageAlt: "Pocket Tool quote creator inside Discord",
-    details: ["Message Context Command", "Custom Type", "Visual Effects"],
+    details: ["Custom Type", "Visual Effects"],
   },
   {
     id: "time",

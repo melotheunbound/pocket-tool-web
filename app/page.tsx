@@ -59,10 +59,10 @@ export default function Home() {
             <h2 className="section-title">Everything lives in the conversation</h2>
             <p className="section-lead">Install Pocket Tool once, then reach for it wherever Discord lets you work - without a dashboard, setup maze or second tab.</p>
             <div className="utility-grid">
-              <article><span>/timestamp</span><h3>Time without the maths</h3><p>Natural-language timestamps and timezone lookups that display correctly for everyone.</p></article>
-              <article><span>/tts</span><h3>Text to speech</h3><p>Speak your mind twin</p></article>
+              <article><span>/timestamp</span><h3>Time without the maths</h3><p>Natural-language timestamp lookups that display correctly for everyone.</p></article>
+              <article><span>/tts</span><h3>Text to speech</h3><p>Speak your messages with ease.</p></article>
               <article><span>/translate</span><h3>Translation in context</h3><p>Translate typed text, existing messages.</p></article>
-              <article><span>/user</span><h3>Useful stuff on users</h3><p>Inspect profiles, avatars, banners, roles and other things i think.</p></article>
+              <article><span>/user</span><h3>Useful stuff on users</h3><p>Inspect profiles, avatars, banners, roles, and other cool things.</p></article>
             </div>
           </div>
         </section>
