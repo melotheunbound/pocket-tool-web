@@ -4,7 +4,6 @@ import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 
 const inviteUrl = "/api/install";
-const canaryUrl = "https://discord.com/oauth2/authorize?client_id=1489363092071518324";
 
 const commandCards = [
   { command: "/translate", label: "Language", copy: "Translate text - or an existing message - without leaving Discord." },
@@ -118,16 +117,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="canary-band">
-          <div className="shell canary-band__inner" data-reveal>
+        <section className="cta-band">
+          <div className="shell cta-band__inner" data-reveal>
             <div>
               <p className="eyebrow">Ready when you are</p>
               <h2>Put the useful tools in reach.</h2>
-              <p>Add Pocket Tool to Discord now, or try Canary to see what is coming next.</p>
+              <p>Add Pocket Tool to your account and use it wherever Discord supports user apps.</p>
             </div>
-            <div className="canary-band__actions">
+            <div className="cta-band__actions">
               <a className="button button--on-dark" href={inviteUrl}>Add Pocket Tool</a>
-              <a className="button button--pink" href={canaryUrl} target="_blank" rel="noreferrer"><span className="canary-mark brand-icon brand-icon--canary" aria-hidden="true"></span>Try Canary</a>
             </div>
           </div>
         </section>

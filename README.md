@@ -25,7 +25,7 @@ Open [http://localhost:3000](http://localhost:3000) in a browser.
 
 The callback stores the complete OAuth token response in `oauth2` against the Discord `user_id`, which is the table's primary key. Access and refresh tokens are encrypted with AES-256-GCM before they reach Supabase.
 
-Generate `OAUTH_TOKEN_ENCRYPTION_KEY` as 32 random bytes encoded with base64. The website and bot must receive the same key through their server environments. When `expires_at` has passed, the bot decrypts `refresh_token`, exchanges it with Discord using `grant_type=refresh_token`, encrypts the returned access and refresh tokens, and replaces the `exchange` value for the same `user_id`.
+Use a secret of at least 32 characters for `OAUTH_TOKEN_ENCRYPTION_KEY`, preferably 32 random bytes encoded with base64. The website and bot must receive the same value through their server environments. When `expires_at` has passed, the bot decrypts `refresh_token`, exchanges it with Discord using `grant_type=refresh_token`, encrypts the returned access and refresh tokens, and replaces the `exchange` value for the same `user_id`.
 
 Production values should use the public site URL:
 

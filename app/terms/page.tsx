@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 
@@ -10,159 +11,30 @@ export default function TermsPage() {
       <SiteHeader />
       <main id="main-content" className="legal-page">
         <div className="shell legal-layout">
-          <aside>
-            <p>LEGAL</p>
-            <h1>Terms of Service</h1>
-            <span>Last updated 12 August 2026</span>
-          </aside>
-
+          <aside><p>LEGAL</p><h1>Terms of Service</h1><span>Last updated 14 August 2026</span></aside>
           <article>
-            <p className="legal-intro">
-              Welcome to <strong>Pocket Tool</strong>. By using this app, you
-              agree to these Terms of Service.
-            </p>
+            <p className="legal-intro">These terms apply when you install or use Pocket Tool. By using the service, you agree to them.</p>
 
-            <h2>1. Acceptance of Terms</h2>
-            <p>
-              By accessing or using the app, you confirm that you have read,
-              understood, and agreed to these Terms.
-            </p>
-            <p>
-              If you do not agree with these Terms, you must stop using the
-              service immediately.
-            </p>
+            <h2>1. The service</h2>
+            <p>Pocket Tool provides utility commands and message tools through Discord. Features may be changed, suspended or removed as the project develops. The service is provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis without a guarantee of uninterrupted availability.</p>
 
-            <h2>2. Description of Service</h2>
-            <p>
-              Pocket Tool provides automated features, commands, and
-              integrations through Discord.
-            </p>
-            <p>
-              Features and functionality may change, be modified, or be
-              removed at any time without prior notice.
-            </p>
+            <h2>2. Acceptable use</h2>
+            <p>You must not use Pocket Tool unlawfully, harass others, distribute malicious content, interfere with the service, attempt unauthorized access, spam commands or place unreasonable load on its infrastructure. You are responsible for the content you submit and how you use generated results.</p>
 
-            <h2>3. User Responsibilities</h2>
-            <p>You agree not to:</p>
-            <ul>
-              <li>Use the app for illegal activities</li>
-              <li>Abuse, exploit, or harass other users</li>
-              <li>
-                Attempt to reverse engineer or disrupt the service
-              </li>
-              <li>Spam commands or overload the infrastructure</li>
-              <li>
-                Use the app to distribute malicious content
-              </li>
-            </ul>
-            <p>
-              You are fully responsible for how you use the service.
-            </p>
+            <h2>3. Discord and third-party services</h2>
+            <p>You must also follow Discord&apos;s Terms of Service and Community Guidelines. Some features depend on Discord or other service providers; their availability, content and actions are outside Pocket Tool&apos;s control.</p>
 
-            <h2>4. Data Collection</h2>
-            <p>
-              Pocket Tool may collect and store the following information:
-            </p>
-            <ul>
-              <li>
-                OAuth2 login credentials, such as access tokens, refresh
-                tokens and user IDs
-              </li>
-              <li>
-                Interaction trigger logs, such as command and component
-                interactions
-              </li>
-              <li>
-                Command usage analytics, including command names, command IDs,
-                and usage counts
-              </li>
-            </ul>
-            <p>
-              We only collect data necessary for operating and improving the
-              service.
-            </p>
+            <h2>4. Privacy</h2>
+            <p>Pocket Tool processes limited information needed to authorize your account, deliver commands, secure the service and maintain reliability. Details are provided in the <Link href="/privacy">Privacy Policy</Link> and <Link href="/cookies">Cookie Notice</Link>.</p>
 
-            <h2>5. Third-Party Services</h2>
-            <p>
-              The app may rely on third-party APIs and services, including AI
-              providers, hosting providers, and Discord services.
-            </p>
-            <p>
-              We are not responsible for outages, interruptions, data loss, or
-              issues caused by third-party services.
-            </p>
+            <h2>5. Suspension and termination</h2>
+            <p>Access may be limited or terminated when reasonably necessary to protect the service or its users, comply with law, respond to Discord action or address a violation of these terms. You may stop using Pocket Tool and revoke its authorization through Discord at any time.</p>
 
-            <h2>6. Availability</h2>
-            <p>
-              The service is provided &quot;as is&quot; and &quot;as
-              available&quot; without warranties of any kind.
-            </p>
-            <p>We do not guarantee:</p>
-            <ul>
-              <li>Uptime</li>
-              <li>Reliability</li>
-              <li>Accuracy</li>
-              <li>Uninterrupted availability</li>
-            </ul>
+            <h2>6. Liability</h2>
+            <p>To the extent permitted by law, Pocket Tool&apos;s maintainers are not liable for indirect or consequential loss, lost data, service interruptions, third-party outages, moderation actions or misuse of the service. Nothing in these terms excludes liability that cannot legally be excluded.</p>
 
-            <h2>7. Limitation of Liability</h2>
-            <p>
-              To the maximum extent permitted by applicable law, the
-              developers of Pocket Tool shall not be liable for:
-            </p>
-            <ul>
-              <li>Indirect or consequential damages</li>
-              <li>Data loss</li>
-              <li>Service interruptions</li>
-              <li>Bans or moderation actions</li>
-              <li>User-generated content</li>
-              <li>Misuse of the service</li>
-            </ul>
-            <p>Use the service at your own risk.</p>
-
-            <h2>8. Termination</h2>
-            <p>
-              We reserve the right to suspend or terminate access to the app
-              at any time, with or without notice, for violations of these
-              Terms.
-            </p>
-
-            <h2>9. Changes to These Terms</h2>
-            <p>
-              These Terms may be updated or modified at any time.
-            </p>
-            <p>
-              Continued use of the app after changes become effective
-              constitutes acceptance of the revised Terms.
-            </p>
-
-            <h2>10. Contact</h2>
-            <p>For support or legal inquiries:</p>
-            <ul>
-              <li>
-                Support Server:{" "}
-                <a
-                  href="https://discord.gg/Y67yNmsPuf"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  https://discord.gg/Y67yNmsPuf
-                </a>
-              </li>
-              <li>
-                Discord: <strong>@mloetta</strong>
-              </li>
-            </ul>
-
-            <h2>11. Platform Compliance</h2>
-            <p>
-              Users must also comply with Discord&apos;s Terms of Service and
-              Community Guidelines.
-            </p>
-            <p>
-              Failure to comply with Discord&apos;s policies may result in
-              restricted or terminated access to the app.
-            </p>
+            <h2>7. Changes and contact</h2>
+            <p>These terms may be updated when the service or applicable requirements change. Continued use after an update means the revised terms apply. Questions can be sent through the <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">support server</a> or to <strong>@mloetta</strong> on Discord.</p>
           </article>
         </div>
       </main>

@@ -45,6 +45,8 @@ export async function GET(request: NextRequest) {
   if (request.nextUrl.searchParams.has("error")) return redirectHome(request, "cancelled");
   if (!code || !returnedState || !savedState || returnedState !== savedState) return redirectHome(request, "error");
 
+  let stage = "token exchange";
+
   try {
     const tokenResponse = await fetch("https://discord.com/api/v10/oauth2/token", {
       method: "POST",
@@ -63,6 +65,7 @@ export async function GET(request: NextRequest) {
     const token = await tokenResponse.json() as DiscordToken;
     if (!token.access_token || !token.refresh_token || token.token_type.toLowerCase() !== "bearer") throw new Error("Discord returned an invalid token response");
 
+    stage = "user lookup";
     const userResponse = await fetch("https://discord.com/api/v10/users/@me", {
       headers: { Authorization: `Bearer ${token.access_token}` },
       cache: "no-store",
@@ -72,6 +75,7 @@ export async function GET(request: NextRequest) {
     const user = await userResponse.json() as DiscordUser;
     if (!user.id) throw new Error("Discord returned an invalid user response");
 
+    stage = "database write";
     const authorizedAt = new Date();
     await recordDiscordOAuth2(user, {
       access_token: encryptToken(token.access_token),
@@ -89,7 +93,9 @@ export async function GET(request: NextRequest) {
     });
 
     return redirectHome(request, "success");
-  } catch {
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.error(`Discord OAuth callback failed during ${stage}: ${message}`);
     return redirectHome(request, "error");
   }
 }

@@ -33,7 +33,7 @@ test("includes the required brand and command assets", async () => {
 
   assert.ok(!files.some((file) => file.endsWith("og.png")));
   assert.ok(files.some((file) => file.endsWith("pocket-tool-icon.png")));
-  assert.ok(files.some((file) => file.endsWith("pocket-tool-canary-icon.png")));
+  assert.ok(files.some((file) => file.endsWith("pocket-tool-icon.png")));
   assert.ok(files.some((file) => file.endsWith("hero-command-preview.png")));
   assert.ok(files.some((file) => file.endsWith("assets/time/timestamp_zone_focus.png")));
   assert.ok(files.some((file) => file.endsWith("assets/quote/quote.png")));

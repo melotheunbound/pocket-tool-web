@@ -37,7 +37,10 @@ async function writeToSupabase(path: string, body: unknown, prefer?: string) {
     cache: "no-store",
   });
 
-  if (!response.ok) throw new Error(`Supabase write failed with status ${response.status}`);
+  if (!response.ok) {
+    const detail = (await response.text()).slice(0, 300);
+    throw new Error(`Supabase write failed with status ${response.status}: ${detail}`);
+  }
 }
 
 export async function recordDiscordOAuth2(user: DiscordUser, exchange: OAuth2Exchange) {

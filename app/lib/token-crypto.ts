@@ -1,4 +1,4 @@
-import { createCipheriv, randomBytes } from "node:crypto";
+import { createCipheriv, createHash, randomBytes } from "node:crypto";
 import { requireServerEnvironment } from "./server-config";
 
 export type EncryptedValue = {
@@ -9,10 +9,17 @@ export type EncryptedValue = {
 };
 
 function getEncryptionKey() {
-  const encoded = requireServerEnvironment("OAUTH_TOKEN_ENCRYPTION_KEY");
-  const key = Buffer.from(encoded, "base64");
-  if (key.length !== 32) throw new Error("OAUTH_TOKEN_ENCRYPTION_KEY must be a base64-encoded 32-byte key");
-  return key;
+  const secret = requireServerEnvironment("OAUTH_TOKEN_ENCRYPTION_KEY");
+  const decoded = Buffer.from(secret, "base64");
+  const normalized = secret.replace(/=+$/, "");
+  const isBase64Key = decoded.length === 32 && decoded.toString("base64").replace(/=+$/, "") === normalized;
+
+  if (isBase64Key) return decoded;
+  if (Buffer.byteLength(secret, "utf8") < 32) {
+    throw new Error("OAUTH_TOKEN_ENCRYPTION_KEY must contain at least 32 characters or be a base64-encoded 32-byte key");
+  }
+
+  return createHash("sha256").update(secret, "utf8").digest();
 }
 
 export function encryptToken(value: string): EncryptedValue {
