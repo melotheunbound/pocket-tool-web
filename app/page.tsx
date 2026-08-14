@@ -14,11 +14,32 @@ const commandCards = [
   { command: "Speech to Text", label: "Audio", copy: "Transcribe a voice message from its message menu." },
 ];
 
-export default function Home() {
+type HomeProps = {
+  searchParams: Promise<{ install?: string; reason?: string }>;
+};
+
+const installErrors: Record<string, string> = {
+  session: "The authorization session expired or could not be verified. Please try again.",
+  discord: "Discord installed the app, but the account authorization could not be completed.",
+  account: "Discord installed the app, but the account details could not be read.",
+  storage: "Discord installed the app, but the secure account record could not be saved.",
+};
+
+export default async function Home({ searchParams }: HomeProps) {
+  const { install, reason } = await searchParams;
+
   return (
     <>
       <SiteHeader active="home" />
       <main id="main-content">
+        {install && (
+          <div className={`install-notice install-notice--${install}`} role="status" aria-live="polite">
+            <div className="shell">
+              <strong>{install === "success" ? "Pocket Tool is connected." : install === "cancelled" ? "Installation cancelled." : "Pocket Tool needs one more step."}</strong>
+              <span>{install === "success" ? "The app was added and your authorization was saved." : install === "cancelled" ? "No account authorization was saved." : installErrors[reason ?? ""] ?? "The authorization could not be completed. Please try again."}</span>
+            </div>
+          </div>
+        )}
         <section className="hero">
           <div className="hero-grid-lines" aria-hidden="true"></div>
           <div className="shell hero__grid">

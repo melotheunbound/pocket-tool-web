@@ -22,9 +22,12 @@ type DiscordUser = {
 
 export const runtime = "nodejs";
 
-function redirectHome(request: NextRequest, status: "success" | "cancelled" | "error") {
+type InstallFailure = "session" | "discord" | "account" | "storage";
+
+function redirectHome(request: NextRequest, status: "success" | "cancelled" | "error", failure?: InstallFailure) {
   const destination = new URL("/", getSiteUrl(request.url));
   destination.searchParams.set("install", status);
+  if (failure) destination.searchParams.set("reason", failure);
   const response = NextResponse.redirect(destination);
   response.cookies.set(stateCookie, "", {
     httpOnly: true,
@@ -43,17 +46,20 @@ export async function GET(request: NextRequest) {
   const savedState = request.cookies.get(stateCookie)?.value;
 
   if (request.nextUrl.searchParams.has("error")) return redirectHome(request, "cancelled");
-  if (!code || !returnedState || !savedState || returnedState !== savedState) return redirectHome(request, "error");
+  if (!code || !returnedState || !savedState || returnedState !== savedState) return redirectHome(request, "error", "session");
 
   let stage = "token exchange";
 
   try {
+    const clientId = getDiscordClientId();
+    const clientSecret = requireServerEnvironment("DISCORD_CLIENT_SECRET");
     const tokenResponse = await fetch("https://discord.com/api/v10/oauth2/token", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: {
+        Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`, "utf8").toString("base64")}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
       body: new URLSearchParams({
-        client_id: getDiscordClientId(),
-        client_secret: requireServerEnvironment("DISCORD_CLIENT_SECRET"),
         grant_type: "authorization_code",
         code,
         redirect_uri: getDiscordRedirectUri(request.url),
@@ -96,6 +102,7 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
     console.error(`Discord OAuth callback failed during ${stage}: ${message}`);
-    return redirectHome(request, "error");
+    const failure: InstallFailure = stage === "token exchange" ? "discord" : stage === "user lookup" ? "account" : "storage";
+    return redirectHome(request, "error", failure);
   }
 }

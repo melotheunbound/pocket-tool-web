@@ -98,6 +98,8 @@ test("implements a server-side Discord installation callback", async () => {
   assert.match(install, /integration_type", "1"/);
   assert.match(install, /httpOnly:\s*true/);
   assert.match(callback, /oauth2\/token/);
+  assert.match(callback, /Authorization: `Basic/);
+  assert.doesNotMatch(callback, /client_secret:/);
   assert.match(callback, /users\/@me/);
   assert.match(callback, /returnedState !== savedState/);
   assert.match(database, /access_token/);
@@ -107,6 +109,7 @@ test("implements a server-side Discord installation callback", async () => {
   assert.match(database, /SUPABASE_OAUTH2_TABLE/);
   assert.doesNotMatch(database, /bot_events|user_installed/);
   assert.match(`${home}\n${header}\n${footer}`, /\/api\/install/);
+  assert.match(home, /install-notice/);
 });
 
 async function walk(root) {
