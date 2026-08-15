@@ -2,8 +2,7 @@ import Image from "next/image";
 import { CommandShowcase } from "./components/CommandShowcase";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
-
-const inviteUrl = "/api/install";
+import { discordInstallUrl } from "./lib/discord";
 
 const commandCards = [
   { command: "/translate", label: "Language", copy: "Translate text - or an existing message - without leaving Discord." },
@@ -14,32 +13,11 @@ const commandCards = [
   { command: "Speech to Text", label: "Audio", copy: "Transcribe a voice message from its message menu." },
 ];
 
-type HomeProps = {
-  searchParams: Promise<{ install?: string; reason?: string }>;
-};
-
-const installErrors: Record<string, string> = {
-  session: "The authorization session expired or could not be verified. Please try again.",
-  discord: "Discord installed the app, but the account authorization could not be completed.",
-  account: "Discord installed the app, but the account details could not be read.",
-  storage: "Discord installed the app, but the secure account record could not be saved.",
-};
-
-export default async function Home({ searchParams }: HomeProps) {
-  const { install, reason } = await searchParams;
-
+export default function Home() {
   return (
     <>
       <SiteHeader active="home" />
       <main id="main-content">
-        {install && (
-          <div className={`install-notice install-notice--${install}`} role="status" aria-live="polite">
-            <div className="shell">
-              <strong>{install === "success" ? "Pocket Tool is connected." : install === "cancelled" ? "Installation cancelled." : "Pocket Tool needs one more step."}</strong>
-              <span>{install === "success" ? "The app was added and your authorization was saved." : install === "cancelled" ? "No account authorization was saved." : installErrors[reason ?? ""] ?? "The authorization could not be completed. Please try again."}</span>
-            </div>
-          </div>
-        )}
         <section className="hero">
           <div className="hero-grid-lines" aria-hidden="true"></div>
           <div className="shell hero__grid">
@@ -49,7 +27,7 @@ export default async function Home({ searchParams }: HomeProps) {
               <p className="hero-headline">The small Discord tools you keep reaching for.</p>
               <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs - handled without pulling you out of the conversation.</p>
               <div className="hero__actions">
-                <a className="button button--primary" href={inviteUrl}>Add to Discord</a>
+                <a className="button button--primary" href={discordInstallUrl}>Add to Discord</a>
                 <a className="button button--secondary" href="/docs">Browse the docs</a>
               </div>
               <div className="hero__meta" aria-label="Pocket Tool highlights">
@@ -146,7 +124,7 @@ export default async function Home({ searchParams }: HomeProps) {
               <p>Add Pocket Tool to your account and use it wherever Discord supports user apps.</p>
             </div>
             <div className="cta-band__actions">
-              <a className="button button--on-dark" href={inviteUrl}>Add Pocket Tool</a>
+              <a className="button button--on-dark" href={discordInstallUrl}>Add Pocket Tool</a>
             </div>
           </div>
         </section>

@@ -1,7 +1,6 @@
 import Link from "next/link";
+import { discordInstallUrl } from "../lib/discord";
 import { ThemeToggle } from "./ThemeToggle";
-
-const inviteUrl = "/api/install";
 
 export function SiteHeader({ active }: { active?: "home" | "docs" }) {
   return (
@@ -21,7 +20,7 @@ export function SiteHeader({ active }: { active?: "home" | "docs" }) {
 
         <div className="site-header__actions">
           <ThemeToggle />
-          <a className="button button--small button--primary header-invite" href={inviteUrl}>
+          <a className="button button--small button--primary header-invite" href={discordInstallUrl}>
             Add to Discord
           </a>
         </div>

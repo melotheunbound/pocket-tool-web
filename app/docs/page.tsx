@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import { CommandReference } from "../components/CommandReference";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
+import { discordInstallUrl } from "../lib/discord";
 
 export const metadata: Metadata = {
   title: "Documentation",
   description: "Pocket Tool command reference, quick-start guide and self-hosting documentation.",
 };
-
-const inviteUrl = "/api/install";
 
 export default function DocsPage() {
   return (
@@ -55,7 +54,7 @@ export default function DocsPage() {
                 <article><span>2</span><div><h3>Type a command</h3><p>Start with <code>/help</code>, or jump straight to something useful like <code>/timestamp</code>.</p></div></article>
                 <article><span>3</span><div><h3>Try message tools</h3><p>Open a message’s Apps menu to quote, translate, transcribe or turn content into a GIF.</p></div></article>
               </div>
-              <a className="button button--primary" href={inviteUrl}>Add Pocket Tool</a>
+              <a className="button button--primary" href={discordInstallUrl}>Add Pocket Tool</a>
             </section>
 
             <section id="install-anywhere" className="docs-section">

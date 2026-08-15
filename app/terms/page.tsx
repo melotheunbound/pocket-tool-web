@@ -11,7 +11,7 @@ export default function TermsPage() {
       <SiteHeader />
       <main id="main-content" className="legal-page">
         <div className="shell legal-layout">
-          <aside><p>LEGAL</p><h1>Terms of Service</h1><span>Last updated 14 August 2026</span></aside>
+          <aside><p>LEGAL</p><h1>Terms of Service</h1><span>Last updated 15 August 2026</span></aside>
           <article>
             <p className="legal-intro">These terms apply when you install or use Pocket Tool. By using the service, you agree to them.</p>
 
@@ -25,10 +25,10 @@ export default function TermsPage() {
             <p>You must also follow Discord&apos;s Terms of Service and Community Guidelines. Some features depend on Discord or other service providers; their availability, content and actions are outside Pocket Tool&apos;s control.</p>
 
             <h2>4. Privacy</h2>
-            <p>Pocket Tool processes limited information needed to authorize your account, deliver commands, secure the service and maintain reliability. Details are provided in the <Link href="/privacy">Privacy Policy</Link> and <Link href="/cookies">Cookie Notice</Link>.</p>
+            <p>Pocket Tool processes limited information needed to deliver commands, secure the service and maintain reliability. Details are provided in the <Link href="/privacy">Privacy Policy</Link> and <Link href="/cookies">Cookie Notice</Link>.</p>
 
             <h2>5. Suspension and termination</h2>
-            <p>Access may be limited or terminated when reasonably necessary to protect the service or its users, comply with law, respond to Discord action or address a violation of these terms. You may stop using Pocket Tool and revoke its authorization through Discord at any time.</p>
+            <p>Access may be limited or terminated when reasonably necessary to protect the service or its users, comply with law, respond to Discord action or address a violation of these terms. You may stop using Pocket Tool and remove it through Discord at any time.</p>
 
             <h2>6. Liability</h2>
             <p>To the extent permitted by law, Pocket Tool&apos;s maintainers are not liable for indirect or consequential loss, lost data, service interruptions, third-party outages, moderation actions or misuse of the service. Nothing in these terms excludes liability that cannot legally be excluded.</p>

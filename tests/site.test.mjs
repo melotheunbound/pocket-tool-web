@@ -84,32 +84,20 @@ test("sets the production security policy", async () => {
   assert.match(layout, /nonce=\{nonce\}/);
 });
 
-test("implements a server-side Discord installation callback", async () => {
-  const [install, callback, database, home, header, footer] = await Promise.all([
-    readFile(new URL("../app/api/install/route.ts", import.meta.url), "utf8"),
-    readFile(new URL("../app/callback/route.ts", import.meta.url), "utf8"),
-    readFile(new URL("../app/lib/supabase-server.ts", import.meta.url), "utf8"),
+test("uses Discord's direct user-app installation flow", async () => {
+  const [discord, home, docs, header, footer] = await Promise.all([
+    readFile(new URL("../app/lib/discord.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/docs/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/SiteHeader.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/SiteFooter.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(install, /applications\.commands identify connections/);
-  assert.match(install, /integration_type", "1"/);
-  assert.match(install, /httpOnly:\s*true/);
-  assert.match(callback, /oauth2\/token/);
-  assert.match(callback, /Authorization: `Basic/);
-  assert.doesNotMatch(callback, /client_secret:/);
-  assert.match(callback, /users\/@me/);
-  assert.match(callback, /returnedState !== savedState/);
-  assert.match(database, /access_token/);
-  assert.match(database, /refresh_token/);
-  assert.match(callback, /encryptToken\(token\.access_token\)/);
-  assert.match(callback, /encryptToken\(token\.refresh_token\)/);
-  assert.match(database, /SUPABASE_OAUTH2_TABLE/);
-  assert.doesNotMatch(database, /bot_events|user_installed/);
-  assert.match(`${home}\n${header}\n${footer}`, /\/api\/install/);
-  assert.match(home, /install-notice/);
+  assert.match(discord, /integration_type=1/);
+  assert.match(discord, /scope=applications\.commands/);
+  assert.doesNotMatch(discord, /response_type|redirect_uri|identify|connections/);
+  assert.match(`${home}\n${docs}\n${header}\n${footer}`, /discordInstallUrl/);
+  assert.doesNotMatch(`${home}\n${docs}\n${header}\n${footer}`, /\/api\/install|\/callback|install-notice/);
 });
 
 async function walk(root) {

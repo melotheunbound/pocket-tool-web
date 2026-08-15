@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-const inviteUrl = "/api/install";
+import { discordInstallUrl } from "../lib/discord";
 
 export function SiteFooter() {
   return (
@@ -17,7 +16,7 @@ export function SiteFooter() {
           <div>
             <p className="footer-label">Explore</p>
             <Link href="/docs">Documentation</Link>
-            <a href={inviteUrl}>Add the app</a>
+            <a href={discordInstallUrl}>Add the app</a>
             <a href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">Source code</a>
           </div>
           <div>

@@ -316,61 +316,6 @@ kbd {
   border-bottom: 1px solid var(--line);
 }
 
-.install-notice {
-  padding: 0.8rem 0;
-  color: #17324f;
-  background: #eaf4ff;
-  border-bottom: 1px solid #bdd8f3;
-}
-
-.install-notice .shell {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-}
-
-.install-notice strong {
-  flex: 0 0 auto;
-}
-
-.install-notice--success {
-  color: #16472f;
-  background: #e9f7ef;
-  border-color: #b9dec9;
-}
-
-.install-notice--error {
-  color: #682825;
-  background: #fff0ef;
-  border-color: #efc3c0;
-}
-
-:root[data-theme="dark"] .install-notice {
-  color: #dbeafe;
-  background: #17253a;
-  border-color: #294566;
-}
-
-:root[data-theme="dark"] .install-notice--success {
-  color: #d7f8e4;
-  background: #173125;
-  border-color: #28533b;
-}
-
-:root[data-theme="dark"] .install-notice--error {
-  color: #ffe2df;
-  background: #3b211f;
-  border-color: #6a3531;
-}
-
-@media (max-width: 640px) {
-  .install-notice .shell {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-}
-
 .hero::before,
 .hero::after {
   position: absolute;

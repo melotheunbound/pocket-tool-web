@@ -16,24 +16,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in a browser.
 
-## Discord installation callback
+## Discord installation
 
-1. Run `supabase/schema.sql` in the Supabase SQL editor.
-2. Copy `.env.example` to `.env.local` and provide the server environment values.
-3. Register the exact `DISCORD_REDIRECT_URI` in the Discord Developer Portal.
-4. Add the same environment values to the Vercel project before deploying.
+The website links directly to Discord's user-app installation screen.
 
-The callback stores the complete OAuth token response in `oauth2` against the Discord `user_id`, which is the table's primary key. Access and refresh tokens are encrypted with AES-256-GCM before they reach Supabase.
-
-Use a secret of at least 32 characters for `OAUTH_TOKEN_ENCRYPTION_KEY`, preferably 32 random bytes encoded with base64. The website and bot must receive the same value through their server environments. When `expires_at` has passed, the bot decrypts `refresh_token`, exchanges it with Discord using `grant_type=refresh_token`, encrypts the returned access and refresh tokens, and replaces the `exchange` value for the same `user_id`.
-
-Production values should use the public site URL:
-
-```text
-SITE_URL=https://pocket-tool.vercel.app
-DISCORD_REDIRECT_URI=https://pocket-tool.vercel.app/callback
-OAUTH_TOKEN_ENCRYPTION_KEY=base64-encoded-32-byte-key
-```
+In the Discord Developer Portal, enable **User Install** for the application and include the `applications.commands` scope in its default installation settings.
 
 ## Production
 
