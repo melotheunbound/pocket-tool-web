@@ -110,7 +110,6 @@ export default function DocsPage() {
                 <div className="code-block__bar"><span>Terminal</span><small>bash</small></div>
                 <pre><code><span># Clone and install</span>{"\n"}git clone https://github.com/mloetta/pocket-tool{"\n"}cd pocket-tool{"\n"}bun install{"\n\n"}<span># Create and edit local configuration</span>{"\n"}cp .env.example .env{"\n\n"}<span># Start the app</span>{"\n"}bun run start</code></pre>
               </div>
-            </section>
 
               <h3 className="docs-subheading">Environment variables</h3>
               <div className="env-table" role="table" aria-label="Pocket Tool environment variables">
