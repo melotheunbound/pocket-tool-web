@@ -16,12 +16,12 @@ export function SiteFooter() {
           <div>
             <p className="footer-label">Explore</p>
             <Link href="/docs">Documentation</Link>
-            <a href={discordInstallUrl}>Add the app</a>
-            <a href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">Source code</a>
+            <a href={inviteUrl}>Add Pocket Tool</a>
+            <a href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">Source Code</a>
           </div>
           <div>
             <p className="footer-label">Project</p>
-            <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">Support server</a>
+            <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">Support Server</a>
             <Link href="/privacy">Privacy</Link>
             <Link href="/cookies">Cookies</Link>
             <Link href="/terms">Terms</Link>

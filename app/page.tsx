@@ -22,7 +22,7 @@ export default function Home() {
           <div className="hero-grid-lines" aria-hidden="true"></div>
           <div className="shell hero__grid">
             <div className="hero__copy">
-              <p className="open-source-pill">Open-source Discord utility app</p>
+              <p className="open-source-pill">Open-source Discord utility bot</p>
               <h1>Pocket Tool</h1>
               <p className="hero-headline">The small Discord tools you keep reaching for.</p>
               <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs - handled without pulling you out of the conversation.</p>
@@ -121,7 +121,7 @@ export default function Home() {
             <div>
               <p className="eyebrow">Ready when you are</p>
               <h2>Put the useful tools in reach.</h2>
-              <p>Add Pocket Tool to your account and use it wherever Discord supports user apps.</p>
+              <p>Add Pocket Tool to your account and use it anytime, anywhere.</p>
             </div>
             <div className="cta-band__actions">
               <a className="button button--on-dark" href={discordInstallUrl}>Add Pocket Tool</a>

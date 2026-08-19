@@ -19,7 +19,7 @@ export default function DocsPage() {
             <div>
               <p className="eyebrow">Documentation</p>
               <h1>Use Pocket Tool <span>without the guesswork.</span></h1>
-              <p>Commands, practical examples and everything you need to run the open-source app yourself.</p>
+              <p>Commands, practical examples and everything you need to run the open-source bot yourself.</p>
             </div>
           </div>
         </section>
@@ -28,14 +28,14 @@ export default function DocsPage() {
           <aside className="docs-sidebar">
             <nav aria-label="Documentation sections">
               <p>Start here</p>
-              <a href="#getting-started">Getting started</a>
-              <a href="#install-anywhere">Install the user app</a>
-              <p>Using the app</p>
-              <a href="#featured">Featured workflows</a>
-              <a href="#commands">Command reference</a>
+              <a href="#getting-started">Getting Started</a>
+              <a href="#install-anywhere">Installation</a>
+              <p>Using Pocket Tool</p>
+              <a href="#featured">Featured Workflows</a>
+              <a href="#commands">Command Reference</a>
               <p>For developers</p>
-              <a href="#self-host">Self-hosting</a>
-              <a href="#data">Data & privacy</a>
+              <a href="#self-host">Self-Hosting</a>
+              <a href="#data">Data & Privacy</a>
             </nav>
             <div className="sidebar-help">
               <span aria-hidden="true">?</span>
@@ -48,9 +48,9 @@ export default function DocsPage() {
             <section id="getting-started" className="docs-section docs-intro">
               <p className="docs-kicker">01 · GETTING STARTED</p>
               <h2>Useful in about thirty seconds.</h2>
-              <p className="docs-lede">Pocket Tool installs to your Discord account as a user app. Add it once, then use its commands anywhere Discord makes them available - servers, direct messages and private channels included.</p>
+              <p className="docs-lede">Pocket Tool can be installed directly to your Discord server as a bot or to your Discord account as a user app. Add it once, then use its commands wherever they’re available - including servers, direct messages and private channels.</p>
               <div className="docs-steps">
-                <article><span>1</span><div><h3>Add the app</h3><p>Use Discord’s authorization screen to install Pocket Tool to your account.</p></div></article>
+                <article><span>1</span><div><h3>Add Pocket Tool</h3><p>Use Discord's authorization screen to install Pocket Tool.</p></div></article>
                 <article><span>2</span><div><h3>Type a command</h3><p>Start with <code>/help</code>, or jump straight to something useful like <code>/timestamp</code>.</p></div></article>
                 <article><span>3</span><div><h3>Try message tools</h3><p>Open a message’s Apps menu to quote, translate, transcribe or turn content into a GIF.</p></div></article>
               </div>
@@ -58,14 +58,14 @@ export default function DocsPage() {
             </section>
 
             <section id="install-anywhere" className="docs-section">
-              <p className="docs-kicker">02 · USER APP INSTALL</p>
+              <p className="docs-kicker">02 · INSTALLATION</p>
               <h2>Install once. Use it across Discord.</h2>
-              <p>Pocket Tool is installed to your Discord account as a user app. You can then use it in DMs, private channels and servers where user-installed apps are allowed. Commands that depend on server data - such as <code>/role</code> - only appear in compatible server contexts.</p>
+              <p>Pocket Tool can be added directly to your Discord server as a bot or installed to your Discord account as a user app. Once installed, you can use it in DMs, private channels, and servers where user-installed apps are allowed. Commands that depend on server data — such as <code>/role</code> — only appear in compatible server contexts.</p>
               <div className="info-grid">
                 <article><span>INSTALL</span><h3>Add it to your account</h3><p>Pocket Tool follows your Discord account instead of being installed to one server.</p></article>
                 <article><span>USE</span><h3>Bring it into any conversation</h3><p>Call its commands in DMs, private channels and servers that allow user-installed apps.</p></article>
               </div>
-              <div className="note"><strong>Good to know</strong><p>Exact command availability still depends on the context, Discord permissions and whether the public app has a required third-party service configured.</p></div>
+              <div className="note"><strong>Good to know</strong><p>Exact command availability still depends on the context, Discord permissions and whether Pocket Tool has a required third-party service configured.</p></div>
             </section>
 
             <section id="featured" className="docs-section">
@@ -102,32 +102,23 @@ export default function DocsPage() {
             <section id="self-host" className="docs-section">
               <p className="docs-kicker">05 · SELF-HOSTING</p>
               <h2>Run your own Pocket Tool.</h2>
-              <p>Self-hosting is intended for developers comfortable with Discord applications and public HTTP endpoints. You need Bun, a Discord app token and a publicly accessible URL for interactions.</p>
+              <p>Self-hosting is intended for developers comfortable with Discord applications. You need Bun and a Discord bot token.</p>
               <div className="requirements">
-                <span><b>01</b>Bun</span><span><b>02</b>Discord app</span><span><b>03</b>Public URL</span>
+                <span><b>01</b>Bun</span><span><b>02</b>Discord</span>
               </div>
               <div className="code-block">
                 <div className="code-block__bar"><span>Terminal</span><small>bash</small></div>
                 <pre><code><span># Clone and install</span>{"\n"}git clone https://github.com/mloetta/pocket-tool{"\n"}cd pocket-tool{"\n"}bun install{"\n\n"}<span># Create and edit local configuration</span>{"\n"}cp .env.example .env{"\n\n"}<span># Start the app</span>{"\n"}bun run start</code></pre>
               </div>
-              <h3 className="docs-subheading">Configure Discord interactions</h3>
-              <ol className="number-list">
-                <li>Open your application in the Discord Developer Portal.</li>
-                <li>Go to <strong>General Information</strong>.</li>
-                <li>Set <strong>Interactions Endpoint URL</strong> to your public <code>/interactions</code> route.</li>
-                <li>Keep Pocket Tool running while Discord verifies the endpoint.</li>
-              </ol>
+            </section>
 
               <h3 className="docs-subheading">Environment variables</h3>
               <div className="env-table" role="table" aria-label="Pocket Tool environment variables">
                 <div role="row"><code>token</code><span>Discord app token</span><b>Required</b></div>
-                <div role="row"><code>discord_public_key</code><span>Verifies incoming interactions</span><b>Required</b></div>
-                <div role="row"><code>port</code><span>HTTP server port</span><b>Required</b></div>
                 <div role="row"><code>dev_ids</code><span>Developer user IDs</span><em>Optional</em></div>
-                <div role="row"><code>maintenance</code><span>Maintenance-mode flag</span><em>Optional</em></div>
                 <div role="row"><code>register_commands</code><span>Register commands on startup</span><em>Optional</em></div>
-                <div role="row"><code>supabase_url / supabase_api_key</code><span>Supabase connection</span><em>Feature dependent</em></div>
-                <div role="row"><code>redis_*</code><span>Redis connection</span><em>Feature dependent</em></div>
+                <div role="row"><code>supabase_*</code><span>Supabase connection credentials</span><em>Feature dependent</em></div>
+                <div role="row"><code>redis_*</code><span>Redis connection credentials</span><em>Feature dependent</em></div>
                 <div role="row"><code>eleven_labs_api_key</code><span>Enables text-to-speech</span><em>Feature dependent</em></div>
                 <div role="row"><code>tolgchu_twitter_api_key</code><span>Enables tweet previews</span><em>Feature dependent</em></div>
               </div>
@@ -135,11 +126,11 @@ export default function DocsPage() {
 
             <section id="data" className="docs-section">
               <p className="docs-kicker">06 · DATA & PRIVACY</p>
-              <h2>Only what keeps the app working.</h2>
+              <h2>Only what keeps Pocket Tool working.</h2>
               <p>The project privacy policy states that Pocket Tool may store interaction trigger logs and command usage analytics. It does not sell, rent or trade user data. Third-party providers can process limited data when a command needs them.</p>
               <div className="policy-links">
-                <a href="/privacy"><span>Privacy policy</span><b>Read policy</b></a>
-                <a href="/terms"><span>Terms of service</span><b>Read terms</b></a>
+                <a href="/privacy"><span>Privacy Policy</span><b>Read Policy</b></a>
+                <a href="/terms"><span>Terms of Service</span><b>Read Terms</b></a>
               </div>
               <div className="source-note">Documentation reflects the public repository as of August 2026. The source code remains the authority for implementation details.</div>
             </section>
