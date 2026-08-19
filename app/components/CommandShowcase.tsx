@@ -95,7 +95,7 @@ export function CommandShowcase() {
         <div className="showcase-media">
           <div className="showcase-media__bar">
             <span><i></i><i></i><i></i></span>
-            <span>discord · pocket-tool</span>
+            <span>discord - pocket-tool</span>
           </div>
           <div className="showcase-media__canvas">
             <Image src={item.image} alt={item.imageAlt} width={item.width} height={item.height} sizes="(max-width: 860px) 92vw, 55vw" unoptimized />

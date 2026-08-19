@@ -46,7 +46,7 @@ export default function DocsPage() {
 
           <article className="docs-content">
             <section id="getting-started" className="docs-section docs-intro">
-              <p className="docs-kicker">01 · GETTING STARTED</p>
+              <p className="docs-kicker">01 - GETTING STARTED</p>
               <h2>Useful in about thirty seconds.</h2>
               <p className="docs-lede">Pocket Tool can be installed directly to your Discord server as a bot or to your Discord account as a user app. Add it once, then use its commands wherever they’re available - including servers, direct messages and private channels.</p>
               <div className="docs-steps">
@@ -58,7 +58,7 @@ export default function DocsPage() {
             </section>
 
             <section id="install-anywhere" className="docs-section">
-              <p className="docs-kicker">02 · INSTALLATION</p>
+              <p className="docs-kicker">02 - INSTALLATION</p>
               <h2>Install once. Use it across Discord.</h2>
               <p>Pocket Tool can be added directly to your Discord server as a bot or installed to your Discord account as a user app. Once installed, you can use it in DMs, private channels, and servers where user-installed apps are allowed. Commands that depend on server data — such as <code>/role</code> — only appear in compatible server contexts.</p>
               <div className="info-grid">
@@ -69,7 +69,7 @@ export default function DocsPage() {
             </section>
 
             <section id="featured" className="docs-section">
-              <p className="docs-kicker">03 · FEATURED WORKFLOWS</p>
+              <p className="docs-kicker">03 - FEATURED WORKFLOWS</p>
               <h2>Four commands worth knowing first.</h2>
 
               <div className="workflow-docs">
@@ -93,14 +93,14 @@ export default function DocsPage() {
             </section>
 
             <section id="commands" className="docs-section command-reference-section">
-              <p className="docs-kicker">04 · COMMAND REFERENCE</p>
+              <p className="docs-kicker">04 - COMMAND REFERENCE</p>
               <h2>Find the right thing quickly.</h2>
               <p>Search the current public commands and context-menu actions. Syntax examples show the available inputs, not required values.</p>
               <CommandReference />
             </section>
 
             <section id="self-host" className="docs-section">
-              <p className="docs-kicker">05 · SELF-HOSTING</p>
+              <p className="docs-kicker">05 - SELF-HOSTING</p>
               <h2>Run your own Pocket Tool.</h2>
               <p>Self-hosting is intended for developers comfortable with Discord applications. You need Bun and a Discord bot token.</p>
               <div className="requirements">
@@ -124,7 +124,7 @@ export default function DocsPage() {
             </section>
 
             <section id="data" className="docs-section">
-              <p className="docs-kicker">06 · DATA & PRIVACY</p>
+              <p className="docs-kicker">06 - DATA & PRIVACY</p>
               <h2>Only what keeps Pocket Tool working.</h2>
               <p>The project privacy policy states that Pocket Tool may store interaction trigger logs and command usage analytics. It does not sell, rent or trade user data. Third-party providers can process limited data when a command needs them.</p>
               <div className="policy-links">

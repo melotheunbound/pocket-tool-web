@@ -110,7 +110,7 @@ export default function Home() {
               </div>
             </div>
             <div className="terminal" data-reveal>
-              <div className="terminal__bar"><span><i></i><i></i><i></i></span><small>pocket-tool · setup</small></div>
+              <div className="terminal__bar"><span><i></i><i></i><i></i></span><small>pocket-tool - setup</small></div>
               <pre><code><span className="terminal-line"><i>$</i> git clone https://github.com/mloetta/pocket-tool</span><span className="terminal-line"><i>$</i> cd pocket-tool</span><span className="terminal-line"><i>$</i> bun install</span><span className="terminal-line"><i>$</i> cp .env.example .env</span><span className="terminal-line"><i>$</i> bun run start</span><span className="terminal-line terminal-line--success">✓ Pocket Tool is ready for interactions</span></code></pre>
             </div>
           </div>
