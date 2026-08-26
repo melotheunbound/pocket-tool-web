@@ -11,9 +11,9 @@ export default function TermsPage() {
       <SiteHeader />
       <main id="main-content" className="legal-page">
         <div className="shell legal-layout">
-          <aside><p>LEGAL</p><h1>Terms of Service</h1><span>Last updated 15 August 2026</span></aside>
+          <aside><p>LEGAL</p><h1>Terms of Service</h1><span>Last updated 26 August 2026</span></aside>
           <article>
-            <p className="legal-intro">These terms apply when you install or use Pocket Tool. By using the service, you agree to them.</p>
+            <p className="legal-intro">These terms apply when you authorize or use Pocket Tool. By using the service, you agree to them.</p>
 
             <h2>1. The service</h2>
             <p>Pocket Tool provides utility commands and message tools through Discord. Features may be changed, suspended or removed as the project develops. The service is provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis without a guarantee of uninterrupted availability.</p>
@@ -34,7 +34,7 @@ export default function TermsPage() {
             <p>To the extent permitted by law, Pocket Tool&apos;s maintainers are not liable for indirect or consequential loss, lost data, service interruptions, third-party outages, moderation actions or misuse of the service. Nothing in these terms excludes liability that cannot legally be excluded.</p>
 
             <h2>7. Changes and contact</h2>
-            <p>These terms may be updated when the service or applicable requirements change. Continued use after an update means the revised terms apply. Questions can be sent through the <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">support server</a> or to <strong>@mloetta</strong> on Discord.</p>
+            <p>These terms may be updated when the service or applicable requirements change. Continued use after an update means the revised terms apply. Questions can be sent through the <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">support server</a> or to <strong>@melotheunbound</strong> on Discord.</p>
           </article>
         </div>
       </main>

@@ -11,9 +11,9 @@ export default function CookiePage() {
       <SiteHeader />
       <main id="main-content" className="legal-page">
         <div className="shell legal-layout">
-          <aside><p>LEGAL</p><h1>Cookie Notice</h1><span>Last updated 10 August 2026</span></aside>
+          <aside><p>LEGAL</p><h1>Cookie Notice</h1><span>Last updated 26 August 2026</span></aside>
           <article>
-            <p className="legal-intro">This notice explains the cookies and similar browser storage used by the Pocket Tool website.</p>
+            <p className="legal-intro">This notice explains the cookies and similar technologies used by the Pocket Tool website.</p>
 
             <h2>1. What this website uses</h2>
             <p>Pocket Tool does not use analytics, advertising, personalisation or cross-site tracking cookies. The website uses only storage needed for security or access control and a first-party theme preference chosen by the visitor.</p>
@@ -31,7 +31,7 @@ export default function CookiePage() {
             <p>You can inspect, block or delete cookies and local storage through your browser settings. Blocking essential security or access cookies may prevent the website from loading or signing you in. Clearing local storage resets the theme to its default.</p>
 
             <h2>6. More information</h2>
-            <p>For information about personal data and your rights, read the <Link href="/privacy">Privacy Policy</Link>. Questions can be sent through the <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">support server</a> or to <strong>@mloetta</strong> on Discord.</p>
+            <p>For information about personal data and your rights, read the <Link href="/privacy">Privacy Policy</Link>. Questions can be sent through the <a href="https://discord.gg/Y67yNmsPuf" target="_blank" rel="noreferrer">support server</a> or to <strong>@melotheunbound</strong> on Discord.</p>
           </article>
         </div>
       </main>
