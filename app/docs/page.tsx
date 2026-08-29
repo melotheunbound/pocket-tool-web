@@ -122,6 +122,7 @@ export default function DocsPage() {
                 <div role="row"><code>tolgchu_twitter_api_key</code><span>Enables tweet previews</span><em>Feature dependent</em></div>
                 <div role="row"><code>azure_api_key</code><span>Enables translation related systems</span><em>Feature dependent</em></div>
                 <div role="row"><code>sapling_api_key</code><span>Enables the spellcheck command</span><em>Feature dependent</em></div>
+                <div role="row"><code>ocr_api_key</code><span>Enables the OCR command</span><em>Feature dependent</em></div>
               </div>
             </section>
 
