@@ -17,7 +17,7 @@ export function SiteFooter() {
             <p className="footer-label">Explore</p>
             <Link href="/docs">Documentation</Link>
             <a href={discordInstallUrl}>Add Pocket Tool</a>
-            <a href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">Source Code</a>
+            <a href="https://github.com/melotheunbound/pocket-tool" target="_blank" rel="noreferrer">Source Code</a>
           </div>
           <div>
             <p className="footer-label">Project</p>

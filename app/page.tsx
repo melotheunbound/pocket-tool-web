@@ -105,13 +105,13 @@ export default function Home() {
               <h2 className="section-title">Open source, end to end</h2>
               <p>Pocket Tool is built in TypeScript on Bun. Inspect every command, suggest an improvement, or run your own instance with the services you choose.</p>
               <div className="open-source-links">
-                <a className="button button--primary" href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">View the repository</a>
+                <a className="button button--primary" href="https://github.com/melotheunbound/pocket-tool" target="_blank" rel="noreferrer">View the repository</a>
                 <a className="text-link" href="/docs#self-host">Self-hosting guide</a>
               </div>
             </div>
             <div className="terminal" data-reveal>
               <div className="terminal__bar"><span><i></i><i></i><i></i></span><small>pocket-tool - setup</small></div>
-              <pre><code><span className="terminal-line"><i>$</i> git clone https://github.com/mloetta/pocket-tool</span><span className="terminal-line"><i>$</i> cd pocket-tool</span><span className="terminal-line"><i>$</i> bun install</span><span className="terminal-line"><i>$</i> cp .env.example .env</span><span className="terminal-line"><i>$</i> bun run start</span><span className="terminal-line terminal-line--success">✓ Pocket Tool is ready!</span></code></pre>
+              <pre><code><span className="terminal-line"><i>$</i> git clone https://github.com/melotheunbound/pocket-tool</span><span className="terminal-line"><i>$</i> cd pocket-tool</span><span className="terminal-line"><i>$</i> bun install</span><span className="terminal-line"><i>$</i> cp .env.example .env</span><span className="terminal-line"><i>$</i> bun run start</span><span className="terminal-line terminal-line--success">✓ Pocket Tool is ready!</span></code></pre>
             </div>
           </div>
         </section>

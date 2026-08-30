@@ -15,7 +15,7 @@ export function SiteHeader({ active }: { active?: "home" | "docs" }) {
         <nav className="site-nav" aria-label="Primary navigation">
           <Link className={active === "home" ? "is-active" : ""} href="/">Home</Link>
           <Link className={active === "docs" ? "is-active" : ""} href="/docs">Docs</Link>
-          <a href="https://github.com/mloetta/pocket-tool" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/melotheunbound/pocket-tool" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
 
         <div className="site-header__actions">
