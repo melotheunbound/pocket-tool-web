@@ -28,7 +28,7 @@ export default function Home() {
               <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs - handled without pulling you out of the conversation.</p>
               <div className="hero__actions">
                 <a className="button button--primary" href={discordInstallUrl}>Add to Discord</a>
-                <a className="button button--secondary" href="/docs">Browse The Docs</a>
+                <a className="button button--secondary" href="/docs">Browse the Docs</a>
               </div>
               <div className="hero__meta" aria-label="Pocket Tool highlights">
                 <span><i aria-hidden="true">✓</i> User-install ready</span>
