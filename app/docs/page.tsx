@@ -3,13 +3,16 @@ import { CommandReference } from "../components/CommandReference";
 import { SiteFooter } from "../components/SiteFooter";
 import { SiteHeader } from "../components/SiteHeader";
 import { discordInstallUrl } from "../lib/discord";
+import { getCommands } from "../lib/commands";
 
 export const metadata: Metadata = {
   title: "Documentation",
   description: "Pocket Tool command reference, quick-start guide and self-hosting documentation.",
 };
 
-export default function DocsPage() {
+export default async function DocsPage() {
+  const commands = await getCommands();
+
   return (
     <>
       <SiteHeader active="docs" />
@@ -50,7 +53,7 @@ export default function DocsPage() {
               <h2>Useful in about thirty seconds.</h2>
               <p className="docs-lede">Pocket Tool can be installed directly to your Discord server as a bot or to your Discord account as a user app. Add it once, then use its commands wherever they’re available - including servers, direct messages and private channels.</p>
               <div className="docs-steps">
-                <article><span>1</span><div><h3>Add Pocket Tool</h3><p>Use Discord's authorization screen to install Pocket Tool.</p></div></article>
+                <article><span>1</span><div><h3>Add Pocket Tool</h3><p>Use Discord&apos;s authorization screen to install Pocket Tool.</p></div></article>
                 <article><span>2</span><div><h3>Type a command</h3><p>Start with <code>/help</code>, or jump straight to something useful like <code>/timestamp</code>.</p></div></article>
                 <article><span>3</span><div><h3>Try message tools</h3><p>Open a message’s Apps menu to quote, translate, transcribe or turn content into a GIF.</p></div></article>
               </div>
@@ -96,7 +99,7 @@ export default function DocsPage() {
               <p className="docs-kicker">04 - COMMAND REFERENCE</p>
               <h2>Find the right thing quickly.</h2>
               <p>Search the current public commands and context-menu actions. Syntax examples show the available inputs, not required values.</p>
-              <CommandReference />
+              <CommandReference commands={commands} />
             </section>
 
             <section id="self-host" className="docs-section">

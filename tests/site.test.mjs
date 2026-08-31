@@ -17,7 +17,7 @@ test("includes the complete landing page, documentation and legal notices", asyn
   assert.match(home, /Real tools, inside Discord/);
   assert.match(home, /terminal-line/);
   assert.doesNotMatch(home, /playground|tonight at 6/i);
-  assert.match(docs, /Command reference/);
+  assert.match(docs, /Command Reference/);
   assert.match(docs, /Self-hosting/);
   assert.match(layout, /Pocket Tool/);
   assert.match(layout, /icons:[\s\S]*pocket-tool-icon\.png/);
@@ -41,10 +41,11 @@ test("includes the required brand and command assets", async () => {
 });
 
 test("keeps public command examples and installation guidance accurate", async () => {
-  const [home, docs, reference] = await Promise.all([
+  const [home, docs, reference, commands] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/docs/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/CommandReference.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/lib/commands.ts", import.meta.url), "utf8"),
   ]);
 
   assert.match(home, /<span>\/timestamp<\/span>/);
@@ -53,6 +54,11 @@ test("keeps public command examples and installation guidance accurate", async (
   assert.match(home, /<span>\/user<\/span>/);
   assert.match(docs, /installed to your Discord account as a user app/);
   assert.doesNotMatch(`${docs}\n${reference}`, /ephemeral: false|EnglishUS|PortugueseBR/);
+  assert.match(commands, /melotheunbound\/pocket-tool/);
+  assert.match(commands, /unstable_cache/);
+  assert.match(commands, /revalidate:\s*86_400/);
+  assert.match(commands, /fallbackCommands/);
+  assert.match(docs, /await getCommands\(\)/);
 });
 
 test("keeps dark mode flat and free of colour glow", async () => {
@@ -93,8 +99,7 @@ test("uses Discord's direct user-app installation flow", async () => {
     readFile(new URL("../app/components/SiteFooter.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(discord, /integration_type=1/);
-  assert.match(discord, /scope=applications\.commands/);
+  assert.match(discord, /discord\.com\/oauth2\/authorize\?client_id=1489362526880796903/);
   assert.doesNotMatch(discord, /response_type|redirect_uri|identify|connections/);
   assert.match(`${home}\n${docs}\n${header}\n${footer}`, /discordInstallUrl/);
   assert.doesNotMatch(`${home}\n${docs}\n${header}\n${footer}`, /\/api\/install|\/callback|install-notice/);
