@@ -48,7 +48,7 @@ const showcases = [
     label: "Tweet",
     command: "/tweet",
     eyebrow: "Links that read well",
-    title: "Bring a post into the conversation - cleanly.",
+    title: "Bring a post into the conversation.",
     description: "Preview X posts with media, engagement details and an optional translation into your chosen language.",
     image: "/assets/tweet/ptbr.png",
     width: 518,
