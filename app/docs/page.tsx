@@ -125,6 +125,7 @@ export default async function DocsPage() {
                 <div role="row"><code>tolgchu_twitter_api_key</code><span>Enables tweet previews</span><em>Feature dependent</em></div>
                 <div role="row"><code>azure_api_key</code><span>Enables translation related systems</span><em>Feature dependent</em></div>
                 <div role="row"><code>ocr_api_key</code><span>Enables the OCR command</span><em>Feature dependent</em></div>
+                <div role="row"><code>lastfm_api_key and spotify_*</code><span>Enables the lastfm command</span><em>Feature dependent</em></div>
               </div>
             </section>
 
