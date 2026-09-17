@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { PageTransition } from "./components/PageTransition";
 import "./globals.css";
 
 const sans = Plus_Jakarta_Sans({
@@ -62,11 +63,13 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
   const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <script nonce={nonce} dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${sans.variable} ${mono.variable}`}>{children}</body>
+      <body className={`${sans.variable} ${mono.variable}`}>
+        <PageTransition>{children}</PageTransition>
+      </body>
     </html>
   );
 }

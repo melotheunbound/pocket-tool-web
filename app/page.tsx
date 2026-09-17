@@ -1,66 +1,130 @@
 import Image from "next/image";
+import Link from "next/link";
 import { CommandShowcase } from "./components/CommandShowcase";
+import { GithubStars } from "./components/GithubStars";
+import { MoreCommands } from "./components/MoreCommands";
+import { SetupTerminal } from "./components/SetupTerminal";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { discordInstallUrl } from "./lib/discord";
 
-const commandCards = [
-  { command: "/translate", label: "Language", copy: "Translate text - or an existing message - without leaving Discord." },
-  { command: "/avatar", label: "Profiles", copy: "Open global and server avatars in the format you need." },
-  { command: "/gif", label: "Media", copy: "Turn an uploaded image into a shareable GIF in a few seconds." },
-  { command: "/role", label: "Lookups", copy: "Inspect role age, colours, position and permissions at a glance." },
-  { command: "/timezone", label: "Time", copy: "Check the current time anywhere with quick autocomplete." },
-  { command: "Speech to Text", label: "Audio", copy: "Transcribe a voice message from its message menu." },
+const REPO = "melotheunbound/pocket-tool";
+
+async function getStarCount(): Promise<number | null> {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}`, {
+      headers: { Accept: "application/vnd.github+json" },
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return typeof data.stargazers_count === "number" ? data.stargazers_count : null;
+  } catch {
+    return null;
+  }
+}
+
+const essentials = [
+  {
+    command: "/timestamp",
+    title: "Time without the maths",
+    copy: "Natural-language timestamp lookups that display correctly for everyone.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M12 7.5V12l3 2" />
+      </svg>
+    ),
+  },
+  {
+    command: "/tts",
+    title: "Text to speech",
+    copy: "Speak your messages with ease.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 10v4h3.5L12 17.5v-11L7.5 10H4Z" />
+        <path d="M16.2 8.8a5 5 0 0 1 0 6.4M18.8 6.2a8.5 8.5 0 0 1 0 11.6" />
+      </svg>
+    ),
+  },
+  {
+    command: "/translate",
+    title: "Translation in context",
+    copy: "Translate typed text, existing messages.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M3.5 12h17M12 3.5c2.2 2.4 3.4 5.4 3.4 8.5s-1.2 6.1-3.4 8.5c-2.2-2.4-3.4-5.4-3.4-8.5s1.2-6.1 3.4-8.5Z" />
+      </svg>
+    ),
+  },
+  {
+    command: "/user",
+    title: "Useful stuff on users",
+    copy: "Inspect profiles, avatars, banners, roles, and other cool things.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="8.5" r="3.3" />
+        <path d="M5.5 19.5c1.3-3.2 3.9-4.8 6.5-4.8s5.2 1.6 6.5 4.8" />
+      </svg>
+    ),
+  },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const stars = await getStarCount();
+
   return (
     <>
       <SiteHeader active="home" />
       <main id="main-content">
         <section className="hero">
-          <div className="hero-grid-lines" aria-hidden="true"></div>
-          <div className="shell hero__grid">
-            <div className="hero__copy">
-              <p className="open-source-pill">Open-source Discord utility bot</p>
-              <h1>Pocket Tool</h1>
-              <p className="hero-headline">The small Discord tools you keep reaching for.</p>
-              <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs - handled without pulling you out of the conversation.</p>
-              <div className="hero__actions">
-                <a className="button button--primary" href={discordInstallUrl}>Add to Discord</a>
-                <a className="button button--secondary" href="/docs">Browse the Docs</a>
+          <div className="shell">
+            <div className="hero-banner">
+              <Image
+                src="/hero-command-preview.png"
+                alt=""
+                fill
+                priority
+                className="hero-banner__image"
+                sizes="(max-width: 900px) 100vw, 1160px"
+              />
+              <div className="hero-banner__scrim" aria-hidden="true"></div>
+              <div className="hero-banner__content">
+                <h1>The small Discord tools you keep reaching for.</h1>
+                <p className="hero__lede">Quotes, timestamps, translation, TTS and the other useful little jobs - handled without pulling you out of the conversation.</p>
+                <div className="hero__actions">
+                  <a className="button button--primary" href={discordInstallUrl}>Add to Discord</a>
+                  <Link className="button button--secondary" href="/docs">Browse the Docs</Link>
+                </div>
               </div>
-              <div className="hero__meta" aria-label="Pocket Tool highlights">
-                <span><i aria-hidden="true">✓</i> User-install ready</span>
-                <span><i aria-hidden="true">✓</i> Works in DMs</span>
-                <span><i aria-hidden="true">✓</i> Self-hostable</span>
-              </div>
-            </div>
-
-            <div className="hero-demo">
-              <figure className="hero-command-art">
-                <Image
-                  src="/hero-command-preview.png"
-                  alt="Pocket Tool in Discord, responding to a timestamp command with an accurate relative time alongside translation and voice message examples"
-                  width={1672}
-                  height={941}
-                  priority
-                  sizes="(max-width: 900px) calc(100vw - 40px), 640px"
-                />
-              </figure>
             </div>
           </div>
         </section>
 
         <section className="section essentials-section" aria-label="Why Pocket Tool">
           <div className="shell">
-            <h2 className="section-title">Everything lives in the conversation</h2>
-            <p className="section-lead">Install Pocket Tool once, then reach for it wherever Discord lets you work - without a dashboard, setup maze or second tab.</p>
+            <div className="section-heading" data-reveal>
+              <p className="eyebrow">Why Pocket Tool</p>
+              <h2 className="section-title">Everything lives in the conversation</h2>
+              <p>Install Pocket Tool once, then reach for it wherever Discord lets you work - without a dashboard, setup maze or second tab.</p>
+            </div>
             <div className="utility-grid">
-              <article><span>/timestamp</span><h3>Time without the maths</h3><p>Natural-language timestamp lookups that display correctly for everyone.</p></article>
-              <article><span>/tts</span><h3>Text to speech</h3><p>Speak your messages with ease.</p></article>
-              <article><span>/translate</span><h3>Translation in context</h3><p>Translate typed text, existing messages.</p></article>
-              <article><span>/user</span><h3>Useful stuff on users</h3><p>Inspect profiles, avatars, banners, roles, and other cool things.</p></article>
+              {essentials.map((item, index) => (
+                <Link
+                  className="utility-card"
+                  href="/docs#commands"
+                  key={item.command}
+                  data-reveal
+                  style={{ "--delay": `${index * 70}ms` } as React.CSSProperties}
+                >
+                  <span className="utility-card__icon" aria-hidden="true">{item.icon}</span>
+                  <code>{item.command}</code>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                  <span className="utility-card__arrow" aria-hidden="true">Read the docs →</span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
@@ -83,18 +147,9 @@ export default function Home() {
                 <p className="eyebrow">And plenty more</p>
                 <h2 className="section-title">More utility, no extra workspace</h2>
               </div>
-              <a className="button button--secondary" href="/docs#commands">View every command</a>
+              <Link className="button button--secondary" href="/docs#commands">View every command</Link>
             </div>
-            <div className="command-card-grid">
-              {commandCards.map((card, index) => (
-                <article className="mini-command-card" key={card.command} data-reveal style={{ "--delay": `${index * 45}ms` } as React.CSSProperties}>
-                  <div><span>{card.label}</span><i>{String(index + 1).padStart(2, "0")}</i></div>
-                  <code>{card.command}</code>
-                  <p>{card.copy}</p>
-                  <a href={`/docs#commands`} aria-label={`Read about ${card.command}`}>Explore</a>
-                </article>
-              ))}
-            </div>
+            <MoreCommands />
           </div>
         </section>
 
@@ -105,14 +160,12 @@ export default function Home() {
               <h2 className="section-title">Open source, end to end</h2>
               <p>Pocket Tool is built in TypeScript on Bun. Inspect every command, suggest an improvement, or run your own instance with the services you choose.</p>
               <div className="open-source-links">
-                <a className="button button--primary" href="https://github.com/melotheunbound/pocket-tool" target="_blank" rel="noreferrer">View the repository</a>
-                <a className="text-link" href="/docs#self-host">Self-hosting guide</a>
+                <a className="button button--primary" href={`https://github.com/${REPO}`} target="_blank" rel="noreferrer">View the repository</a>
+                <Link className="text-link" href="/docs#self-host">Self-hosting guide</Link>
+                <GithubStars stars={stars} />
               </div>
             </div>
-            <div className="terminal" data-reveal>
-              <div className="terminal__bar"><span><i></i><i></i><i></i></span><small>pocket-tool - setup</small></div>
-              <pre><code><span className="terminal-line"><i>$</i> git clone https://github.com/melotheunbound/pocket-tool</span><span className="terminal-line"><i>$</i> cd pocket-tool</span><span className="terminal-line"><i>$</i> bun install</span><span className="terminal-line"><i>$</i> cp .env.example .env</span><span className="terminal-line"><i>$</i> bun run start</span><span className="terminal-line terminal-line--success">✓ Pocket Tool is ready!</span></code></pre>
-            </div>
+            <SetupTerminal />
           </div>
         </section>
 
