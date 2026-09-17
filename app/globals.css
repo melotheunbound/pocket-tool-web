@@ -1090,8 +1090,8 @@ kbd {
   width: min(1220px, calc(100% - 2rem));
   margin: 0 auto 1.5rem;
   padding: 2.5rem 2.75rem 1.5rem;
-  color: #111827;
-  background: #ffffff;
+  color: var(--text);
+  background: var(--surface);
   border-radius: 28px;
   box-shadow: var(--shadow);
 }
@@ -1106,7 +1106,7 @@ kbd {
 .footer-brand p {
   margin: 0.85rem 0 0;
   max-width: 26rem;
-  color: #566378;
+  color: var(--muted);
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -1119,7 +1119,7 @@ kbd {
 
 .footer-label {
   margin-bottom: 0.15rem;
-  color: #8b93a1;
+  color: var(--quiet);
   font-family: var(--font-mono), monospace;
   font-size: 0.58rem;
   font-weight: 800;
@@ -1129,13 +1129,13 @@ kbd {
 
 .footer-column a {
   width: fit-content;
-  color: #566378;
+  color: var(--muted);
   font-size: 0.82rem;
   transition: color 160ms ease;
 }
 
 .footer-column a:hover {
-  color: #111827;
+  color: var(--text);
 }
 
 .site-footer__bottom {
@@ -1145,8 +1145,8 @@ kbd {
   justify-content: space-between;
   gap: 0.75rem;
   padding-top: 1.5rem;
-  color: #8b93a1;
-  border-top: 1px solid #e5e7eb;
+  color: var(--quiet);
+  border-top: 1px solid var(--line);
   font-size: 0.72rem;
 }
 
@@ -1161,7 +1161,7 @@ kbd {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
-  color: #566378;
+  color: var(--muted);
   font-weight: 600;
 }
 
@@ -1169,13 +1169,13 @@ kbd {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: #111827;
+  color: var(--text);
   border-bottom: 1px solid transparent;
   transition: border-color 160ms ease;
 }
 
 .site-footer__credit-person:hover {
-  border-color: #111827;
+  border-color: var(--text);
 }
 
 .site-footer__credit-avatar {
@@ -1188,7 +1188,7 @@ kbd {
 .site-footer__heart {
   width: 15px;
   height: 15px;
-  color: #c3c9d4;
+  color: var(--quiet);
   transition: color 220ms ease, filter 220ms ease, transform 220ms cubic-bezier(.2,.8,.2,1);
 }
 
@@ -2652,22 +2652,22 @@ body {
 }
 
 .section--tinted {
-  background: #ffffff;
+  background: var(--page);
   border: 0;
 }
 
 .section--tinted .section-title {
-  color: #111827;
+  color: var(--text);
 }
 
 .section--tinted .command-filters button {
-  color: #566378;
-  background: #f3f4f6;
+  color: var(--muted);
+  background: var(--surface);
 }
 
 .section--tinted .command-filters button:hover {
-  color: #111827;
-  background: #e5e7eb;
+  color: var(--text);
+  background: var(--surface-strong);
 }
 
 .section--tinted .command-filters button.is-active {
@@ -2676,23 +2676,23 @@ body {
 }
 
 .section--tinted .mini-command-card {
-  background: #f6f7f9;
+  background: var(--surface);
 }
 
 .section--tinted .mini-command-card:hover {
-  background: #edeff3;
+  background: var(--surface-strong);
 }
 
 .section--tinted .mini-command-card > p {
-  color: #566378;
+  color: var(--muted);
 }
 
 .section--tinted .mini-command-card__actions a {
-  color: #111827;
+  color: var(--text);
 }
 
 .section--tinted .mini-command-card__copy {
-  color: #8b93a1;
+  color: var(--quiet);
 }
 
 .section--tinted .mini-command-card__copy:hover {
@@ -2880,8 +2880,8 @@ body {
   width: min(1220px, calc(100% - 2rem));
   margin: 0 auto 1.5rem;
   padding: 3rem 2.75rem;
-  color: #111827;
-  background: #ffffff;
+  color: var(--text);
+  background: var(--surface);
   border: 0;
   border-radius: 28px;
   box-shadow: var(--shadow);
@@ -2899,7 +2899,7 @@ body {
 }
 
 .cta-band p:last-child {
-  color: #566378;
+  color: var(--muted);
 }
 
 
