@@ -5,7 +5,6 @@ import { ThemeToggle } from "./ThemeToggle";
 export function SiteHeader({ active }: { active?: "home" | "docs" }) {
   return (
     <header className="site-header">
-      <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="site-header__inner shell">
         <Link className="brand" href="/" aria-label="Pocket Tool home">
           <span className="brand__mark brand-icon brand-icon--primary" aria-hidden="true"></span>

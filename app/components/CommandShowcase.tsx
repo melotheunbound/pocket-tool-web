@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const showcases = [
   {
@@ -58,30 +59,110 @@ const showcases = [
   },
 ] as const;
 
+const AUTOPLAY_MS = 6000;
+
 export function CommandShowcase() {
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [paused, setPaused] = useState(false);
+  const [indicator, setIndicator] = useState<{ left: number; width: number } | null>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const item = showcases[active];
 
+  const goTo = useCallback((index: number, dir: "next" | "prev") => {
+    setDirection(dir);
+    setActive(index);
+  }, []);
+
+  const handleTabClick = (index: number) => {
+    if (index === active) return;
+    goTo(index, index > active ? "next" : "prev");
+  };
+
+  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+    event.preventDefault();
+    const nextIndex = event.key === "ArrowRight"
+      ? (index + 1) % showcases.length
+      : (index - 1 + showcases.length) % showcases.length;
+    goTo(nextIndex, event.key === "ArrowRight" ? "next" : "prev");
+    tabRefs.current[nextIndex]?.focus();
+  };
+
+  useLayoutEffect(() => {
+    const btn = tabRefs.current[active];
+    if (btn) {
+      setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
+    }
+  }, [active]);
+
+  useEffect(() => {
+    function syncIndicator() {
+      const btn = tabRefs.current[active];
+      if (btn) setIndicator({ left: btn.offsetLeft, width: btn.offsetWidth });
+    }
+    window.addEventListener("resize", syncIndicator);
+    return () => window.removeEventListener("resize", syncIndicator);
+  }, [active]);
+
+  useEffect(() => {
+    if (paused) return;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const timer = window.setTimeout(() => {
+      goTo((active + 1) % showcases.length, "next");
+    }, AUTOPLAY_MS);
+
+    return () => window.clearTimeout(timer);
+  }, [active, paused, goTo]);
+
   return (
-    <div className="showcase" data-reveal>
+    <div
+      className="showcase"
+      data-reveal
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node)) setPaused(false);
+      }}
+    >
       <div className="showcase-tabs" role="tablist" aria-label="Featured Pocket Tool commands">
+        {indicator && (
+          <span
+            className="showcase-tabs__indicator"
+            style={{ transform: `translateX(${indicator.left}px)`, width: indicator.width }}
+            aria-hidden="true"
+          />
+        )}
         {showcases.map((showcase, index) => (
           <button
             key={showcase.id}
+            ref={(el) => { tabRefs.current[index] = el; }}
             type="button"
             role="tab"
+            tabIndex={active === index ? 0 : -1}
             aria-selected={active === index}
             aria-controls="showcase-panel"
             className={active === index ? "is-active" : ""}
-            onClick={() => setActive(index)}
+            onClick={() => handleTabClick(index)}
+            onKeyDown={(event) => handleTabKeyDown(event, index)}
           >
             <span>{String(index + 1).padStart(2, "0")}</span>
             {showcase.label}
+            {active === index && (
+              <i
+                className="showcase-tabs__progress"
+                key={paused ? `${index}-paused` : `${index}-running`}
+                style={{ animationPlayState: paused ? "paused" : "running" }}
+                aria-hidden="true"
+              />
+            )}
           </button>
         ))}
       </div>
 
-      <div className="showcase-panel" id="showcase-panel" role="tabpanel" key={item.id}>
+      <div className="showcase-panel" id="showcase-panel" role="tabpanel" key={item.id} data-direction={direction}>
         <div className="showcase-copy">
           <p className="eyebrow">{item.eyebrow}</p>
           <p className="command-chip"><span aria-hidden="true">›</span> {item.command}</p>
@@ -90,7 +171,7 @@ export function CommandShowcase() {
           <ul className="detail-list" aria-label="Highlights">
             {item.details.map((detail) => <li key={detail}>{detail}</li>)}
           </ul>
-          <a className="text-link" href={`/docs#${item.id}`}>Read command details</a>
+          <Link className="text-link" href={`/docs#${item.id}`}>Read command details</Link>
         </div>
         <div className="showcase-media">
           <div className="showcase-media__bar">
